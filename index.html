@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elevate Tutor – Maths, Science & Medicine Admissions Tutoring | Solihull & Online</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1a2540;
+    --navy2:  #243152;
+    --gold:   #b8924a;
+    --gold-l: #e8d9c0;
+    --cream:  #f8f5f0;
+    --white:  #ffffff;
+    --slate:  #5a6478;
+    --border: rgba(26,37,64,.1);
+    --green:  #3a6b5c;
+    --green-l:#d6ebe4;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5vw;
+    background: rgba(248,245,240,.92); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,37,64,.08); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: .88rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; }
+  .nav-cta:hover { background: var(--gold); }
+  @media(max-width:700px){ .nav-links { display:none; } }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 8rem 5vw 5rem;
+    background: var(--navy);
+    position: relative; overflow: hidden;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; max-width: 1200px; margin: auto; width: 100%; }
+  @media(max-width:860px){ .hero-grid { grid-template-columns: 1fr; gap: 3rem; } .hero-visual { display: none; } }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: .5rem;
+    border: 1px solid rgba(184,146,74,.4); color: var(--gold-l);
+    font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    padding: .4rem 1rem; border-radius: 2px; margin-bottom: 1.8rem;
+    animation: fadeUp .7s ease both;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    font-weight: 700; color: var(--white);
+    line-height: 1.08; letter-spacing: -.02em;
+    animation: fadeUp .7s .1s ease both;
+  }
+  h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub {
+    margin-top: 1.4rem; font-size: 1.05rem; font-weight: 300;
+    color: rgba(248,245,240,.65); line-height: 1.75; max-width: 480px;
+    animation: fadeUp .7s .2s ease both;
+  }
+  .hero-actions { margin-top: 2.4rem; display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp .7s .32s ease both; }
+  .btn-gold { background: var(--gold); color: var(--white); padding: .85rem 2rem; border-radius: 4px; font-weight: 600; font-size: .95rem; text-decoration: none; transition: background .2s, transform .2s; }
+  .btn-gold:hover { background: #a07a3a; transform: translateY(-1px); }
+  .btn-ghost { border: 1.5px solid rgba(248,245,240,.25); color: rgba(248,245,240,.8); padding: .85rem 2rem; border-radius: 4px; font-weight: 500; font-size: .95rem; text-decoration: none; transition: all .2s; }
+  .btn-ghost:hover { border-color: rgba(248,245,240,.6); color: var(--white); }
+  .hero-stats { margin-top: 3.5rem; display: flex; gap: 2.5rem; flex-wrap: wrap; animation: fadeUp .7s .45s ease both; }
+  .stat { border-left: 2px solid rgba(184,146,74,.4); padding-left: 1.2rem; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1; }
+  .stat-num span { color: var(--gold); }
+  .stat-label { font-size: .78rem; font-weight: 500; color: rgba(248,245,240,.5); letter-spacing: .06em; text-transform: uppercase; margin-top: .15rem; }
+
+  /* Hero card */
+  .hero-visual { animation: fadeUp .7s .2s ease both; }
+  .hero-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 12px; padding: 2rem; backdrop-filter: blur(8px); }
+  .hcard-title { font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.4rem; }
+  .subject-pill { display: inline-flex; align-items: center; gap: .5rem; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); color: rgba(248,245,240,.8); font-size: .82rem; font-weight: 500; padding: .45rem 1rem; border-radius: 20px; margin: .3rem; transition: background .2s; }
+  .subject-pill:hover { background: rgba(184,146,74,.2); border-color: rgba(184,146,74,.4); color: var(--gold-l); }
+  .subject-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .hcard-divider { border: none; border-top: 1px solid rgba(255,255,255,.08); margin: 1.5rem 0; }
+  .hcard-result { display: flex; align-items: center; gap: .9rem; margin-bottom: .9rem; }
+  .hcard-result:last-child { margin-bottom: 0; }
+  .result-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--green-l); display: grid; place-items: center; font-size: .95rem; flex-shrink: 0; }
+  .result-text { font-size: .82rem; color: rgba(248,245,240,.7); line-height: 1.4; }
+  .result-text strong { color: var(--white); font-weight: 600; display: block; }
+
+  /* SHARED */
+  section:not(#hero) { padding: 6rem 5vw; }
+  .section-label { font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .7rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.12; }
+  .section-sub { margin-top: .8rem; font-size: .97rem; color: var(--slate); font-weight: 300; line-height: 1.75; max-width: 500px; }
+  .inner { max-width: 1200px; margin: auto; }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  @media(max-width:800px){ .about-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  .about-img { background: var(--navy); border-radius: 12px; aspect-ratio: 4/3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .about-img-inner { font-family: 'Cormorant Garamond', serif; font-size: 9rem; font-weight: 700; color: rgba(255,255,255,.06); position: absolute; bottom: -1rem; right: 1rem; line-height: 1; }
+  .about-badge { position: absolute; bottom: 1.8rem; left: 1.8rem; background: var(--gold); color: var(--white); padding: .8rem 1.3rem; border-radius: 8px; font-size: .82rem; font-weight: 600; line-height: 1.4; }
+  .about-badge span { display: block; font-size: 1.6rem; font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+  .about-text p { font-size: .97rem; color: var(--slate); line-height: 1.8; margin-bottom: 1.2rem; font-weight: 300; }
+  .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .pillar { background: var(--cream); border-radius: 8px; padding: 1.2rem; border-left: 3px solid var(--gold); }
+  .pillar h4 { font-weight: 600; font-size: .9rem; margin-bottom: .3rem; }
+  .pillar p { font-size: .8rem; color: var(--slate); line-height: 1.5; }
+
+  /* SERVICES */
+  #services { background: var(--cream); }
+  .services-grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.4rem; }
+  .service-card { background: var(--white); border-radius: 10px; padding: 2rem 1.8rem; border: 1.5px solid var(--border); transition: transform .25s, box-shadow .25s, border-color .25s; }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(26,37,64,.08); border-color: var(--gold); }
+  .svc-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+  .svc-level { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
+  .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; margin-bottom: .5rem; }
+  .service-card p { font-size: .85rem; color: var(--slate); line-height: 1.65; }
+
+  /* PRICING */
+  #pricing { background: var(--navy); }
+  #pricing .section-title { color: var(--white); }
+  #pricing .section-sub { color: rgba(248,245,240,.55); }
+  .pricing-grid { margin-top: 3.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 1.5rem; align-items: start; }
+  .price-card { background: rgba(255,255,255,.05); border: 1.5px solid rgba(255,255,255,.1); border-radius: 10px; padding: 2.4rem 2rem; transition: border-color .25s, transform .25s; }
+  .price-card:hover { border-color: rgba(184,146,74,.5); transform: translateY(-4px); }
+  .price-card.featured { background: var(--white); border-color: var(--white); }
+  .price-tier { font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(248,245,240,.5); margin-bottom: .6rem; }
+  .price-card.featured .price-tier { color: var(--gold); }
+  .price-badge { display: inline-block; background: var(--gold); color: var(--white); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: .25rem .8rem; border-radius: 2px; margin-bottom: .8rem; }
+  .price-amount { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: .3rem; }
+  .price-card.featured .price-amount { color: var(--navy); }
+  .price-amount sup { font-size: 1.4rem; vertical-align: top; margin-top: .5rem; }
+  .price-amount sub { font-size: .95rem; font-family: 'Outfit', sans-serif; font-weight: 400; color: rgba(248,245,240,.45); }
+  .price-card.featured .price-amount sub { color: var(--slate); }
+  .price-desc { font-size: .85rem; color: rgba(248,245,240,.5); line-height: 1.6; margin-bottom: 1.8rem; }
+  .price-card.featured .price-desc { color: var(--slate); }
+  .price-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: .7rem; }
+  .price-features li { display: flex; align-items: center; gap: .7rem; font-size: .87rem; color: rgba(248,245,240,.75); }
+  .price-card.featured .price-features li { color: var(--navy); }
+  .price-features li::before { content: '✓'; width: 18px; height: 18px; min-width: 18px; background: rgba(184,146,74,.15); color: var(--gold); border-radius: 50%; display: grid; place-items: center; font-size: .65rem; font-weight: 700; }
+  .price-card.featured .price-features li::before { background: var(--green-l); color: var(--green); }
+  .price-btn { display: block; text-align: center; padding: .85rem; border-radius: 4px; font-weight: 600; font-size: .9rem; text-decoration: none; transition: all .2s; border: 1.5px solid rgba(255,255,255,.2); color: rgba(248,245,240,.8); }
+  .price-btn:hover { background: rgba(255,255,255,.1); color: var(--white); }
+  .price-card.featured .price-btn { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .price-card.featured .price-btn:hover { background: var(--gold); border-color: var(--gold); }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--white); }
+  .testi-grid { margin-top: 3.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1.5rem; }
+  .testi-card { background: var(--cream); border-radius: 10px; padding: 2rem; border: 1.5px solid var(--border); transition: transform .25s, box-shadow .25s; }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(26,37,64,.07); }
+  .testi-result { display: inline-block; background: var(--green-l); color: var(--green); font-size: .72rem; font-weight: 600; padding: .25rem .7rem; border-radius: 2px; margin-bottom: .9rem; letter-spacing: .04em; }
+  .testi-stars { color: var(--gold); letter-spacing: .08em; font-size: .95rem; margin-bottom: 1rem; }
+  .testi-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.75; color: var(--navy); font-style: italic; margin-bottom: 1.5rem; }
+  .testi-author { display: flex; align-items: center; gap: .9rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); display: grid; place-items: center; font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+  .testi-name { font-weight: 600; font-size: .88rem; }
+  .testi-role { font-size: .76rem; color: var(--slate); }
+
+  /* CONTACT */
+  #contact { background: var(--cream); }
+  .contact-grid { margin-top: 3.5rem; display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; align-items: start; }
+  @media(max-width:800px){ .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .cicon { width: 42px; height: 42px; min-width: 42px; border-radius: 8px; background: var(--navy); display: grid; place-items: center; font-size: 1rem; }
+  .contact-item h4 { font-weight: 600; font-size: .88rem; margin-bottom: .2rem; }
+  .contact-item p { font-size: .84rem; color: var(--slate); line-height: 1.5; }
+  .trust-box { margin-top: 2rem; background: var(--navy); border-radius: 10px; padding: 1.6rem; }
+  .trust-box h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: .8rem; }
+  .trust-item { display: flex; align-items: center; gap: .7rem; font-size: .82rem; color: rgba(248,245,240,.65); margin-bottom: .6rem; }
+  .trust-item::before { content: '✓'; color: var(--gold); font-weight: 700; }
+  .contact-form { background: var(--white); border-radius: 10px; padding: 2.5rem; border: 1.5px solid var(--border); display: flex; flex-direction: column; gap: 1rem; }
+  .form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: .1rem; }
+  .form-subtitle { font-size: .83rem; color: var(--slate); margin-bottom: .5rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media(max-width:500px){ .form-row { grid-template-columns: 1fr; } }
+  label { font-size: .78rem; font-weight: 600; letter-spacing: .04em; color: var(--navy); display: block; margin-bottom: .35rem; }
+  input, textarea, select { width: 100%; padding: .8rem 1rem; border: 1.5px solid var(--border); border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: .88rem; color: var(--navy); background: var(--cream); outline: none; transition: border-color .2s, box-shadow .2s; }
+  input:focus, textarea:focus, select:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(184,146,74,.1); background: var(--white); }
+  textarea { resize: vertical; min-height: 110px; }
+  .form-submit { background: var(--navy); color: var(--white); padding: .9rem; border: none; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: .93rem; font-weight: 600; cursor: pointer; transition: background .2s, transform .15s; letter-spacing: .02em; }
+  .form-submit:hover { background: var(--gold); transform: translateY(-1px); }
+  .form-note { font-size: .76rem; color: var(--slate); text-align: center; }
+
+  /* FOOTER */
+  footer { background: #111827; color: rgba(248,245,240,.45); padding: 2.5rem 5vw; }
+  .footer-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); }
+  .footer-logo span { color: var(--gold); }
+  footer p { font-size: .8rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(248,245,240,.4); font-size: .8rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .reveal { opacity:1; transform:none; transition: opacity .65s ease, transform .65s ease; }
+  .reveal.hidden { opacity:0; transform:translateY(28px); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Elevate<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Subjects</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Book a Free Consultation</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag">Maths · Science · Medicine Admissions · KS3–A-Level</div>
+      <h1>Specialist Tutoring<br><em>That Opens</em><br>Doors.</h1>
+      <p class="hero-sub">Expert tutoring in Maths and Science from KS3 to A-Level, plus dedicated Medicine admissions support. We help ambitious students achieve top grades and secure places at the universities they aspire to.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-gold">Book a Free Consultation</a>
+        <a href="#about" class="btn-ghost">Learn More</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">500<span>+</span></div>
+          <div class="stat-label">Students Supported</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">98<span>%</span></div>
+          <div class="stat-label">Pass Rate</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">KS3<span>–</span>A</div>
+          <div class="stat-label">All Year Groups</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hcard-title">Our Specialisms</div>
+        <div>
+          <span class="subject-pill"><span class="dot"></span>Mathematics</span>
+          <span class="subject-pill"><span class="dot"></span>Biology</span>
+          <span class="subject-pill"><span class="dot"></span>Chemistry</span>
+          <span class="subject-pill"><span class="dot"></span>Physics</span>
+          <span class="subject-pill"><span class="dot"></span>UCAT Prep</span>
+          <span class="subject-pill"><span class="dot"></span>Personal Statements</span>
+          <span class="subject-pill"><span class="dot"></span>Medical Interviews</span>
+        </div>
+        <hr class="hcard-divider">
+        <div class="hcard-result">
+          <div class="result-icon">🎯</div>
+          <div class="result-text"><strong>GCSE &amp; A-Level Specialists</strong>Exam-focused prep with past paper practice</div>
+        </div>
+        <div class="hcard-result">
+          <div class="result-icon">🩺</div>
+          <div class="result-text"><strong>Medicine Admissions Experts</strong>UCAT, personal statements &amp; interview coaching</div>
+        </div>
+        <div class="hcard-result">
+          <div class="result-icon">🏆</div>
+          <div class="result-text"><strong>Qualified, DBS-Checked Tutors</strong>Subject specialists &amp; medical professionals</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <div class="about-img-inner">E</div>
+        <div class="about-badge"><span>7+</span>Years of Excellence</div>
+      </div>
+      <div class="about-text reveal">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-title">Founded by a Doctor<br>Who Never Stopped<br><em style="color:var(--gold);font-style:italic;">Loving to Teach</em></h2>
+        <p style="margin-top:1.2rem;">Elevate Tutor was born out of a genuine passion for teaching. Our founder — a qualified doctor — spent the entirety of medical school tutoring students in Maths and Science, and discovered something unexpected: the classroom was just as fulfilling as the clinic.</p>
+        <p>That experience also revealed something important. Students aspiring to study Medicine were rarely getting the calibre of admissions support they needed — guidance from someone who had actually navigated the UCAT, written a successful personal statement, and sat the medical school interviews themselves. So Elevate Tutor was created to fill that gap, while delivering the same expert support across Maths, Biology, Chemistry, and Physics from KS3 to A-Level.</p>
+        <p>Based in Solihull, we work with students across the West Midlands and beyond — both in-person and online. Every session is shaped by the same ethos: no shortcuts, no generic worksheets, just expert support tailored to your child.</p>
+        <div class="about-pillars">
+          <div class="pillar"><h4>Personalised Learning</h4><p>Every student gets a plan built around their specific gaps and goals.</p></div>
+          <div class="pillar"><h4>Specialist Tutors</h4><p>Subject specialists and medical professionals with proven results.</p></div>
+          <div class="pillar"><h4>Regular Feedback</h4><p>Parents receive progress updates after every session block.</p></div>
+          <div class="pillar"><h4>Flexible Scheduling</h4><p>Sessions built around your family's timetable.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Subjects &amp; Services</h2>
+      <p class="section-sub">Specialist tutoring in Maths and Science from KS3 to A-Level, alongside dedicated Medicine admissions support.</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="svc-icon">➕</div>
+        <div class="svc-level">KS3 · GCSE · A-Level</div>
+        <h3>Mathematics</h3>
+        <p>From algebra and trigonometry to calculus and statistics. We build genuine understanding, not just exam technique — the foundation for top grades.</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">🧬</div>
+        <div class="svc-level">KS3 · GCSE · A-Level</div>
+        <h3>Biology</h3>
+        <p>Cell biology, genetics, physiology, ecology and beyond. Taught by tutors with a deep understanding of the syllabus and the marking scheme.</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">⚗️</div>
+        <div class="svc-level">KS3 · GCSE · A-Level</div>
+        <h3>Chemistry</h3>
+        <p>Organic, inorganic and physical chemistry made clear. Strong on exam technique, mechanisms, and the practical skills examiners reward.</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">⚛️</div>
+        <div class="svc-level">KS3 · GCSE · A-Level</div>
+        <h3>Physics</h3>
+        <p>Mechanics, electricity, waves, particle physics and required practicals. We focus on building intuition for the concepts behind the equations.</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">🩺</div>
+        <div class="svc-level">UCAS Applicants</div>
+        <h3>UCAT Preparation</h3>
+        <p>Targeted preparation for every UCAT section — Verbal Reasoning, Decision Making, Quantitative Reasoning, Abstract Reasoning, and Situational Judgement.</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-icon">📝</div>
+        <div class="svc-level">UCAS Applicants</div>
+        <h3>Personal Statements &amp; Interviews</h3>
+        <p>Personal statement drafting and review, plus full interview preparation including MMI and panel formats. Guided by tutors who've successfully done it themselves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">Investment</div>
+      <h2 class="section-title">Transparent Pricing</h2>
+      <p class="section-sub">No hidden fees, no long-term contracts. Choose what works for your family.</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="price-tier">Occasional</div>
+        <div class="price-amount"><sup>£</sup>38<sub>/hr</sub></div>
+        <p class="price-desc">Flexible pay-as-you-go support. Ideal for topping up or trying us out.</p>
+        <ul class="price-features">
+          <li>1 session per week</li>
+          <li>Personalised session plan</li>
+          <li>Post-session summary</li>
+          <li>Email support between sessions</li>
+        </ul>
+        <a href="#contact" class="price-btn">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <span class="price-badge">Most Popular</span>
+        <div class="price-tier">Regular</div>
+        <div class="price-amount"><sup>£</sup>32<sub>/hr</sub></div>
+        <p class="price-desc">Consistent weekly sessions at a reduced rate. Our most popular choice for committed learners.</p>
+        <ul class="price-features">
+          <li>2–3 sessions per week</li>
+          <li>Full learning roadmap</li>
+          <li>Monthly progress reports</li>
+          <li>Priority tutor matching</li>
+          <li>Parent updates included</li>
+          <li>Exam preparation resources</li>
+        </ul>
+        <a href="#contact" class="price-btn">Book Now</a>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Intensive</div>
+        <div class="price-amount"><sup>£</sup>27<sub>/hr</sub></div>
+        <p class="price-desc">Focused exam preparation or rapid catch-up. Maximum input, maximum results.</p>
+        <ul class="price-features">
+          <li>Daily sessions available</li>
+          <li>Exam-focused strategy</li>
+          <li>Full past paper practice</li>
+          <li>Weekly progress tracking</li>
+          <li>Priority support line</li>
+          <li>Exam board marking scheme coaching</li>
+        </ul>
+        <a href="#contact" class="price-btn">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">What Families Say</div>
+      <h2 class="section-title">Real Results, Real Feedback</h2>
+      <p class="section-sub">From KS3 support to A-Level success — hear from the students and parents we've worked with.</p>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <div class="testi-result">A-Level Maths: D → A</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"My daughter was on the verge of dropping A-Level Maths. After eight weeks with Elevate, she sat her exam with confidence and came out with an A. The improvement in her attitude towards the subject was just as impressive as the grade."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">SM</div>
+          <div><div class="testi-name">Sarah M.</div><div class="testi-role">Parent · Solihull</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-result">GCSE Chemistry: C → A</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"I actually started to enjoy Chemistry after my first few sessions — which I never thought I'd say. My tutor explained things in a way that finally made sense to me. I went from dreading the exam to feeling genuinely prepared."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JT</div>
+          <div><div class="testi-name">Jamie T.</div><div class="testi-role">Year 11 Student · Birmingham</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-result">Medical School Offer Secured</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Elevate's UCAT and interview preparation was the difference-maker in my application. Having a tutor who'd actually been through medical school admissions themselves was invaluable — I went into my interviews genuinely prepared and came out with offers from three medical schools."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">DK</div>
+          <div><div class="testi-name">David K.</div><div class="testi-role">Medical School Applicant · Solihull</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Book Your Free Consultation</h2>
+      <p class="section-sub">A no-obligation 20-minute call to discuss your child's needs and find the right tutor for them.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="cicon">📍</div>
+            <div><h4>Location</h4><p>Solihull, West Midlands<br>In-person &amp; online sessions available UK-wide</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="cicon">📧</div>
+            <div><h4>Email</h4><p>elevatetutor1@gmail.com</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="cicon">📞</div>
+            <div><h4>Phone</h4><p>+44 7377 409999<br>Mon–Sat, 8am–8pm</p></div>
+          </div>
+        </div>
+        <div class="trust-box">
+          <h4>Why families choose Elevate</h4>
+          <div class="trust-item">Free initial consultation — no obligation</div>
+          <div class="trust-item">No long-term contracts required</div>
+          <div class="trust-item">Qualified, DBS-checked tutors</div>
+          <div class="trust-item">Flexible online or in-person sessions</div>
+          <div class="trust-item">Regular parent progress updates</div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-title">Send Us a Message</div>
+        <div class="form-subtitle">We'll be in touch within one working day.</div>
+        <div class="form-row">
+          <div><label>Parent / Guardian Name</label><input type="text" placeholder="e.g. Jane Smith"></div>
+          <div><label>Email Address</label><input type="email" placeholder="jane@example.com"></div>
+        </div>
+        <div class="form-row">
+          <div><label>Phone Number</label><input type="tel" placeholder="Optional"></div>
+          <div>
+            <label>Student's Year Group</label>
+            <select>
+              <option value="">Select year group…</option>
+              <option>Year 7 (KS3)</option><option>Year 8 (KS3)</option><option>Year 9 (KS3)</option>
+              <option>Year 10 (GCSE)</option><option>Year 11 (GCSE)</option>
+              <option>Year 12 (A-Level)</option><option>Year 13 (A-Level)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label>Subject of Interest</label>
+            <select>
+              <option value="">Select subject…</option>
+              <option>Mathematics</option>
+              <option>Biology</option>
+              <option>Chemistry</option>
+              <option>Physics</option>
+              <option>UCAT Preparation</option>
+              <option>Personal Statement Support</option>
+              <option>Medical School Interview Prep</option>
+              <option>Multiple subjects</option>
+            </select>
+          </div>
+          <div>
+            <label>Session Preference</label>
+            <select>
+              <option value="">Select…</option>
+              <option>In-person (Solihull)</option>
+              <option>Online</option>
+              <option>No preference</option>
+            </select>
+          </div>
+        </div>
+        <div><label>Tell Us More (optional)</label><textarea placeholder="e.g. areas your child is struggling with, upcoming exams, goals…"></textarea></div>
+        <button class="form-submit" onclick="handleSubmit(event)">Request Free Consultation →</button>
+        <p class="form-note">We respect your privacy. Your details will never be shared with third parties.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Elevate<span>.</span></div>
+      <p style="margin-top:.3rem;">Maths, Science &amp; Medicine admissions tutoring across the West Midlands &amp; online.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#services">Subjects</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>© 2026 Elevate Tutor · Solihull, West Midlands</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+  // Add hidden class first, then reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  revealEls.forEach(r => r.classList.add('hidden'));
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.remove('hidden');
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(r => obs.observe(r));
+  function handleSubmit(e) {
+    const btn = e.target;
+    btn.textContent = '✓ Request Received — We\'ll be in touc
