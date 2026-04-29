@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tutor Jobs at Elevate Tutor – Apply to Join Our Team | Solihull & Online</title>
+<meta name="description" content="Join Elevate Tutor as a private tutor. We're recruiting subject specialists in Maths, Biology, Chemistry, Physics, and Medicine admissions across the West Midlands and online. Flexible hours, supportive team, competitive pay.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1a2540;
+    --navy2:  #243152;
+    --gold:   #b8924a;
+    --gold-l: #e8d9c0;
+    --cream:  #f8f5f0;
+    --white:  #ffffff;
+    --slate:  #5a6478;
+    --border: rgba(26,37,64,.1);
+    --green:  #3a6b5c;
+    --green-l:#d6ebe4;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5vw;
+    background: rgba(248,245,240,.92); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,37,64,.08); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: .88rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; }
+  .nav-cta:hover { background: var(--gold); }
+  @media(max-width:700px){ .nav-links { display:none; } }
+
+  /* HERO */
+  .tutor-hero {
+    min-height: 70vh; display: flex; align-items: center;
+    padding: 8rem 5vw 5rem;
+    background: var(--navy);
+    color: var(--cream);
+    position: relative; overflow: hidden;
+  }
+  .tutor-hero::before {
+    content: ''; position: absolute; top: -120px; right: -120px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,74,0.18), transparent 70%);
+  }
+  .tutor-hero-inner { max-width: 1200px; margin: auto; position: relative; z-index: 2; }
+  .tutor-hero-tag { display: inline-block; padding: .35rem 1rem; border: 1px solid rgba(232,217,192,.4); border-radius: 100px; font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-l); margin-bottom: 1.5rem; }
+  .tutor-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 700; line-height: 1.05; margin-bottom: 1.5rem; }
+  .tutor-hero h1 em { color: var(--gold); font-style: italic; }
+  .tutor-hero-sub { font-size: 1.1rem; max-width: 720px; line-height: 1.6; color: rgba(248,245,240,.85); margin-bottom: 2rem; }
+  .tutor-hero-cta { display: inline-block; background: var(--gold); color: var(--navy); padding: .9rem 2rem; border-radius: 4px; font-size: .95rem; font-weight: 600; text-decoration: none; transition: transform .2s, background .2s; letter-spacing: .02em; }
+  .tutor-hero-cta:hover { background: var(--gold-l); transform: translateY(-2px); }
+
+  /* SECTION BASE */
+  section { padding: 5rem 5vw; }
+  .section-inner { max-width: 1200px; margin: auto; }
+  .section-label { display: inline-block; font-size: .78rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: .8rem; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.2rem; }
+  .section-title em { color: var(--gold); font-style: italic; }
+  .section-sub { font-size: 1.05rem; color: var(--slate); max-width: 700px; line-height: 1.6; }
+
+  /* WHY US (3-column benefits) */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .why-card { background: var(--white); padding: 2rem; border-radius: 6px; border: 1px solid var(--border); transition: transform .2s, box-shadow .2s; }
+  .why-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(26,37,64,.08); }
+  .why-icon { font-size: 1.8rem; margin-bottom: 1rem; display: inline-block; }
+  .why-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: .6rem; }
+  .why-card p { font-size: .95rem; line-height: 1.55; color: var(--slate); }
+
+  /* WHO WE'RE LOOKING FOR */
+  #criteria { background: var(--white); }
+  .criteria-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; margin-top: 2rem; align-items: start; }
+  @media(max-width: 850px){ .criteria-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .criteria-list { list-style: none; }
+  .criteria-list li { padding: 1rem 0 1rem 2.2rem; border-bottom: 1px solid var(--border); position: relative; font-size: 1rem; line-height: 1.55; }
+  .criteria-list li:last-child { border-bottom: none; }
+  .criteria-list li::before {
+    content: '✓'; position: absolute; left: 0; top: 1rem;
+    width: 1.4rem; height: 1.4rem; border-radius: 50%;
+    background: var(--gold); color: var(--white);
+    font-size: .75rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .criteria-list li strong { color: var(--navy); display: block; margin-bottom: .15rem; }
+  .criteria-list li span { color: var(--slate); font-size: .92rem; }
+  .criteria-aside { background: var(--cream); padding: 2.2rem; border-radius: 6px; border-left: 3px solid var(--gold); }
+  .criteria-aside h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; }
+  .criteria-aside p { color: var(--slate); line-height: 1.65; margin-bottom: 1rem; font-size: .96rem; }
+  .criteria-aside p:last-child { margin-bottom: 0; }
+
+  /* HOW IT WORKS — process steps */
+  #process { background: var(--cream); }
+  .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .step-card { background: var(--white); padding: 2rem 1.6rem; border-radius: 6px; border: 1px solid var(--border); position: relative; }
+  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: .6rem; }
+  .step-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; margin-bottom: .5rem; }
+  .step-card p { font-size: .9rem; color: var(--slate); line-height: 1.55; }
+
+  /* APPLICATION FORM */
+  #apply { background: var(--white); }
+  .apply-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; margin-top: 2rem; align-items: start; }
+  @media(max-width: 850px){ .apply-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+  .apply-info p { color: var(--slate); line-height: 1.65; margin-bottom: 1rem; font-size: 1rem; }
+  .apply-info-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+  .apply-info-item:last-child { border-bottom: none; }
+  .apply-info-icon { font-size: 1.3rem; flex-shrink: 0; }
+  .apply-info-item h5 { font-size: .95rem; font-weight: 600; margin-bottom: .15rem; }
+  .apply-info-item p { font-size: .88rem; color: var(--slate); line-height: 1.5; margin: 0; }
+
+  .apply-form { background: var(--cream); padding: 2.5rem; border-radius: 6px; border: 1px solid var(--border); }
+  .form-title { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 700; margin-bottom: .3rem; }
+  .form-subtitle { font-size: .92rem; color: var(--slate); margin-bottom: 1.6rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  @media(max-width: 600px){ .form-row { grid-template-columns: 1fr; } }
+  .apply-form label { display: block; font-size: .82rem; font-weight: 500; margin-bottom: .35rem; color: var(--navy); }
+  .apply-form input, .apply-form select, .apply-form textarea {
+    width: 100%; padding: .7rem .8rem; border: 1px solid var(--border); border-radius: 4px;
+    font-family: 'Outfit', sans-serif; font-size: .92rem; background: var(--white);
+    transition: border-color .2s;
+  }
+  .apply-form input:focus, .apply-form select:focus, .apply-form textarea:focus {
+    outline: none; border-color: var(--gold);
+  }
+  .apply-form textarea { min-height: 110px; resize: vertical; font-family: 'Outfit', sans-serif; }
+  .apply-form > div { margin-bottom: 1rem; }
+  .form-submit {
+    background: var(--navy); color: var(--white); padding: .9rem; border: none; border-radius: 4px;
+    font-family: 'Outfit', sans-serif; font-size: .93rem; font-weight: 600; cursor: pointer;
+    transition: background .2s, transform .15s; letter-spacing: .02em; width: 100%; margin-top: .5rem;
+  }
+  .form-submit:hover { background: var(--gold); transform: translateY(-1px); }
+  .form-submit:disabled { background: var(--slate); cursor: not-allowed; transform: none; }
+  .form-status { margin-top: 1rem; padding: .9rem 1rem; border-radius: 4px; font-size: .9rem; font-family: 'Outfit', sans-serif; display: none; }
+  .form-status.success { display: block; background: #f0f7f0; color: #1f5f1f; border: 1px solid #cce5cc; }
+  .form-status.error { display: block; background: #fdf0f0; color: #8a1f1f; border: 1px solid #f0cccc; }
+  .form-note { font-size: .76rem; color: var(--slate); text-align: center; margin-top: 1rem; }
+
+  /* FAQ */
+  #faq { background: var(--cream); }
+  .faq-list { max-width: 800px; margin: 3rem auto 0; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 1.4rem 0; }
+  .faq-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: .5rem; }
+  .faq-item p { color: var(--slate); line-height: 1.65; font-size: .98rem; }
+
+  /* FOOTER */
+  footer { background: #111827; color: rgba(248,245,240,.45); padding: 2.5rem 5vw; }
+  .footer-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); }
+  .footer-logo span { color: var(--gold); }
+  footer p { font-size: .8rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(248,245,240,.4); font-size: .8rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* REVEAL */
+  .hidden { opacity: 0; transform: translateY(20px); }
+  .visible { opacity: 1; transform: translateY(0); transition: opacity .8s, transform .8s; }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Elevate<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Subjects</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#testimonials">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="tutors.html" style="color: var(--navy); font-weight: 600;">Tutor Jobs</a></li>
+  </ul>
+  <a href="#apply" class="nav-cta">Apply Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="tutor-hero">
+  <div class="tutor-hero-inner">
+    <div class="tutor-hero-tag">Now Recruiting Tutors</div>
+    <h1>Teach With <em>Purpose.</em><br>Earn On Your Terms.</h1>
+    <p class="tutor-hero-sub">Join a growing tutoring company built around quality, flexibility, and genuine care for student outcomes. We're looking for subject specialists who love teaching and want to make a real difference — without the admin, marketing, and chasing of going it alone.</p>
+    <a href="#apply" class="tutor-hero-cta">Apply to Join Our Team →</a>
+  </div>
+</section>
+
+<!-- WHY JOIN -->
+<section id="why" class="reveal">
+  <div class="section-inner">
+    <div class="section-label">Why Tutor With Us</div>
+    <h2 class="section-title">A Better Way to <em>Tutor.</em></h2>
+    <p class="section-sub">We handle the marketing, vetting, scheduling, and admin — so you can focus on what you actually love: teaching.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">📅</div>
+        <h3>Flexible Hours</h3>
+        <p>Work as much or as little as you want. Set your own availability around studies, work, or family — we match students to your schedule.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💰</div>
+        <h3>Competitive Pay</h3>
+        <p>Strong hourly rates with no platform fees deducted from your earnings. Paid promptly and reliably for every session you deliver.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎯</div>
+        <h3>Students Brought to You</h3>
+        <p>No need to find your own clients. We handle marketing, enquiries, and matching — you just turn up and teach.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🌐</div>
+        <h3>Online or In-Person</h3>
+        <p>Tutor from anywhere in the UK online, or take in-person sessions across Solihull and the wider West Midlands.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <h3>Genuine Support</h3>
+        <p>We're tutors ourselves. Founded by a doctor with years of teaching experience — you'll get real guidance, not corporate hand-holding.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📈</div>
+        <h3>Build Your Experience</h3>
+        <p>Whether you're a student, graduate, or career-changer, gain solid teaching experience, references, and a track record.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRITERIA -->
+<section id="criteria" class="reveal">
+  <div class="section-inner">
+    <div class="section-label">Who We're Looking For</div>
+    <h2 class="section-title">Strong Subject Knowledge.<br><em>Genuine Passion for Teaching.</em></h2>
+
+    <div class="criteria-grid">
+      <ul class="criteria-list">
+        <li><strong>Deep subject expertise</strong><span>Strong academic background in the subject you'd like to tutor — A or A* grades at A-Level or equivalent, with a degree underway or completed.</span></li>
+        <li><strong>The ability to explain clearly</strong><span>Knowing the subject is half the job. The other half is being able to break it down for someone who's struggling. We test for this in interview.</span></li>
+        <li><strong>Reliability and professionalism</strong><span>Showing up on time, prepared, and ready to teach. Communicating well with parents and students. The basics, done consistently.</span></li>
+        <li><strong>Right to work in the UK</strong><span>You must have the legal right to work in the UK to tutor with us, whether self-employed or otherwise.</span></li>
+        <li><strong>An Enhanced DBS check</strong><span>Required before you can begin tutoring. If you don't have one, we'll guide you through obtaining one.</span></li>
+      </ul>
+
+      <aside class="criteria-aside">
+        <h3>What We're Especially Keen On</h3>
+        <p><strong>Medicine admissions specialists.</strong> If you've successfully navigated UCAT, written a strong personal statement, and sat medical school interviews — your experience is exactly what aspiring medics need.</p>
+        <p><strong>Maths and Science specialists</strong> at GCSE and A-Level, particularly Chemistry and Biology — these are our highest-demand subjects.</p>
+        <p><strong>University students from Birmingham, Warwick, Aston, or Oxbridge</strong> in relevant disciplines. Recent A-Level graduates with top results are also welcome to apply.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="process" class="reveal">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title">From Application to <em>First Lesson.</em></h2>
+    <p class="section-sub">A straightforward, transparent process. No drawn-out hoops to jump through.</p>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h4>Apply</h4>
+        <p>Fill in the application form below. We'll review it within 3–5 working days and get back to you either way.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h4>Interview</h4>
+        <p>A short video call to discuss your subject knowledge, teaching approach, and availability. Usually 30 minutes.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h4>Onboard</h4>
+        <p>DBS verification, contract signing, and a brief orientation on how we operate. Quick and clear.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h4>Start Teaching</h4>
+        <p>We match you with students that fit your subjects and schedule. You teach. We handle the rest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section id="apply" class="reveal">
+  <div class="section-inner">
+    <div class="section-label">Apply Now</div>
+    <h2 class="section-title">Ready to Get <em>Started?</em></h2>
+    <p class="section-sub">Tell us about yourself below and we'll be in touch within 3–5 working days.</p>
+
+    <div class="apply-grid">
+      <div class="apply-info">
+        <div class="apply-info-item">
+          <div class="apply-info-icon">📧</div>
+          <div>
+            <h5>Email</h5>
+            <p>elevatetutor1@gmail.com<br>For any questions about tutoring with us.</p>
+          </div>
+        </div>
+        <div class="apply-info-item">
+          <div class="apply-info-icon">📞</div>
+          <div>
+            <h5>Phone</h5>
+            <p>+44 7377 409999<br>Mon–Fri, 9am–6pm.</p>
+          </div>
+        </div>
+        <div class="apply-info-item">
+          <div class="apply-info-icon">📍</div>
+          <div>
+            <h5>Location</h5>
+            <p>Based in Solihull, recruiting tutors across the West Midlands and online — anywhere in the UK.</p>
+          </div>
+        </div>
+        <div class="apply-info-item">
+          <div class="apply-info-icon">⏱️</div>
+          <div>
+            <h5>Response Time</h5>
+            <p>We aim to respond to every application within 3–5 working days.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="apply-form">
+        <div class="form-title">Tutor Application</div>
+        <div class="form-subtitle">All fields are required unless marked optional.</div>
+        <form id="tutor-form" action="https://formspree.io/f/xjgjnnpv" method="POST">
+          <div class="form-row">
+            <div><label>Full Name</label><input type="text" name="name" placeholder="e.g. Alex Patel" required></div>
+            <div><label>Email Address</label><input type="email" name="email" placeholder="alex@example.com" required></div>
+          </div>
+          <div class="form-row">
+            <div><label>Phone Number</label><input type="tel" name="phone" placeholder="07XXX XXXXXX" required></div>
+            <div><label>Location</label><input type="text" name="location" placeholder="e.g. Solihull / Online only" required></div>
+          </div>
+          <div>
+            <label>Highest Qualification (or in progress)</label>
+            <select name="qualification" required>
+              <option value="">Select…</option>
+              <option>A-Levels completed (recent)</option>
+              <option>Undergraduate – in progress</option>
+              <option>Undergraduate degree</option>
+              <option>Postgraduate / Masters</option>
+              <option>PhD</option>
+              <option>Qualified Teacher (QTS)</option>
+              <option>Doctor / Medical Professional</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label>University / School (current or most recent)</label>
+            <input type="text" name="institution" placeholder="e.g. University of Birmingham" required>
+          </div>
+          <div>
+            <label>Subjects You'd Like to Tutor</label>
+            <input type="text" name="subjects" placeholder="e.g. GCSE Maths, A-Level Chemistry, UCAT" required>
+          </div>
+          <div class="form-row">
+            <div>
+              <label>Tutoring Mode</label>
+              <select name="mode" required>
+                <option value="">Select…</option>
+                <option>Online only</option>
+                <option>In-person only (West Midlands)</option>
+                <option>Both online and in-person</option>
+              </select>
+            </div>
+            <div>
+              <label>Hours Per Week Available</label>
+              <select name="hours" required>
+                <option value="">Select…</option>
+                <option>Up to 5 hours</option>
+                <option>5–10 hours</option>
+                <option>10–20 hours</option>
+                <option>20+ hours</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label>Do You Have an Enhanced DBS Check?</label>
+            <select name="dbs" required>
+              <option value="">Select…</option>
+              <option>Yes — already have one</option>
+              <option>No — but willing to obtain</option>
+              <option>In progress</option>
+            </select>
+          </div>
+          <div>
+            <label>Tell Us About Your Teaching Experience &amp; Why You'd Like to Join</label>
+            <textarea name="message" placeholder="Briefly describe any tutoring or teaching experience, your approach, and why you'd like to tutor with Elevate. 100–300 words is plenty." required></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="New tutor application — Elevate Tutor">
+          <button type="submit" class="form-submit">Submit Application →</button>
+          <div id="form-status" class="form-status"></div>
+        </form>
+        <p class="form-note">Your details will be kept confidential and used only for assessing your application.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="reveal">
+  <div class="section-inner">
+    <div class="section-label">Frequently Asked</div>
+    <h2 class="section-title">Tutor <em>FAQs</em></h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>Do I need a teaching qualification (PGCE, QTS) to tutor with you?</h4>
+        <p>No — what matters most is strong subject knowledge and the ability to explain things clearly. Many of our best tutors are current university students, recent graduates, and professionals with strong academic backgrounds. Qualified teachers are very welcome too.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How are tutors paid?</h4>
+        <p>You'll be paid per session at an agreed rate, with payments processed regularly. We discuss exact rates at interview based on your subject, level, and experience. Tutors are engaged on a self-employed basis, which means you're responsible for your own tax and National Insurance.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Will I be matched with students near me, or anywhere?</h4>
+        <p>It depends on what you're available for. If you're online-only, we'll match you with students from anywhere in the UK. For in-person, we match within reasonable travel distance from your location across the West Midlands.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How quickly will I get students?</h4>
+        <p>Honestly, it varies. Our most in-demand tutors (Maths, Chemistry, Biology, and Medicine admissions) often get matched within a couple of weeks. Less common subjects can take longer. We're upfront about this at interview.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I tutor with you alongside my degree or other work?</h4>
+        <p>Absolutely — most of our tutors do exactly this. You set your own availability, and we work around it. There's no minimum hours commitment.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What about safeguarding and DBS checks?</h4>
+        <p>Every tutor must hold a current Enhanced DBS check before being matched with students. If you don't have one, we'll guide you through obtaining one through an umbrella body — it costs around £50–60 and takes 1–4 weeks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Elevate<span>.</span></div>
+      <p style="margin-top:.3rem;">Maths, Science &amp; Medicine admissions tutoring across the West Midlands &amp; online.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Subjects</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#testimonials">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="tutors.html">Tutor Jobs</a>
+    </div>
+    <p>© 2026 Elevate Tutor · Solihull, West Midlands</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  revealEls.forEach(r => r.classList.add('hidden'));
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.remove('hidden');
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(r => obs.observe(r));
+
+  // Form submission via Formspree AJAX
+  const form = document.getElementById('tutor-form');
+  const status = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.form-submit');
+      const originalText = btn.textContent;
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      status.className = 'form-status';
+      status.textContent = '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          status.className = 'form-status success';
+          status.textContent = '✓ Thank you — your application has been received. We aim to respond within 3–5 working days.';
+          form.reset();
+          btn.textContent = '✓ Sent';
+          setTimeout(() => {
+            btn.disabled = false;
+            btn.textContent = originalText;
+          }, 5000);
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        status.className = 'form-status error';
+        status.innerHTML = 'Sorry — something went wrong. Please try again, or email your application to <a href="mailto:elevatetutor1@gmail.com">elevatetutor1@gmail.com</a>.';
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
