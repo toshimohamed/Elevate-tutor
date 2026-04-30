@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog – Elevate Tutor | Study Guides for Maths, Science & Medicine Admissions</title>
+<meta name="description" content="Expert guides and study tips for Maths, Sciences (Biology, Chemistry, Physics), and Medicine admissions — written by qualified tutors at Elevate Tutor.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1a2540;
+    --navy2:  #243152;
+    --gold:   #b8924a;
+    --gold-l: #e8d9c0;
+    --cream:  #f8f5f0;
+    --white:  #ffffff;
+    --slate:  #5a6478;
+    --border: rgba(26,37,64,.1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5vw;
+    background: rgba(248,245,240,.92); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,37,64,.08); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: .88rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; white-space: nowrap; }
+  .nav-cta:hover { background: var(--gold); }
+  .nav-cta-short { display: none; }
+  .nav-burger { display: none; background: none; border: none; cursor: pointer; padding: .4rem; margin-left: .5rem; position: relative; z-index: 101; }
+  .nav-burger svg { width: 24px; height: 24px; stroke: var(--navy); display: block; }
+  .nav-burger .burger-icon-close { display: none; }
+  .nav-burger.open .burger-icon-open { display: none; }
+  .nav-burger.open .burger-icon-close { display: block; }
+
+  .mobile-menu {
+    position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh;
+    background: var(--cream); box-shadow: -4px 0 24px rgba(26,37,64,.12);
+    padding: 5rem 2rem 2rem; z-index: 99;
+    transition: right .3s ease;
+    display: flex; flex-direction: column; gap: 1.4rem;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    font-size: 1rem; font-weight: 500; color: var(--navy); text-decoration: none;
+    padding: .5rem 0; border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a.cta {
+    background: var(--navy); color: var(--cream); border: none;
+    padding: .9rem 1rem; border-radius: 4px; text-align: center;
+    font-weight: 600; margin-top: 1rem;
+  }
+  .mobile-overlay {
+    position: fixed; inset: 0; background: rgba(26,37,64,.4);
+    opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; z-index: 98;
+  }
+  .mobile-overlay.open { opacity: 1; visibility: visible; }
+
+  @media(max-width:780px){
+    nav { padding: .85rem 5vw; }
+    .nav-links { display: none; }
+    .nav-burger { display: inline-flex; }
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline-block; padding: .55rem 1.1rem; font-size: .85rem; }
+  }
+  @media(max-width:380px){
+    .nav-cta-short { display: none; }
+    .nav-logo { font-size: 1.4rem; }
+  }
+
+  /* HERO */
+  .blog-hero {
+    padding: 9rem 5vw 4rem;
+    background: var(--navy);
+    color: var(--cream);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .blog-hero::before {
+    content: ''; position: absolute; top: -120px; right: -120px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,74,0.18), transparent 70%);
+  }
+  .blog-hero-inner { max-width: 800px; margin: auto; position: relative; z-index: 2; }
+  .blog-hero-tag { display: inline-block; padding: .35rem 1rem; border: 1px solid rgba(232,217,192,.4); border-radius: 100px; font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; color: var(--gold-l); margin-bottom: 1.5rem; }
+  .blog-hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 3.8rem); font-weight: 700; line-height: 1.1; margin-bottom: 1.2rem; }
+  .blog-hero h1 em { color: var(--gold); font-style: italic; }
+  .blog-hero-sub { font-size: 1.05rem; line-height: 1.6; color: rgba(248,245,240,.85); max-width: 600px; margin: auto; }
+
+  /* CATEGORY FILTERS */
+  .filter-bar {
+    background: var(--white);
+    padding: 2rem 5vw;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 65px;
+    z-index: 50;
+    box-shadow: 0 2px 8px rgba(26,37,64,.04);
+  }
+  .filter-inner { max-width: 1200px; margin: auto; display: flex; justify-content: center; gap: .8rem; flex-wrap: wrap; }
+  .filter-btn {
+    background: transparent; border: 1px solid var(--border);
+    padding: .55rem 1.3rem; border-radius: 100px;
+    font-family: 'Outfit', sans-serif; font-size: .88rem; font-weight: 500;
+    color: var(--slate); cursor: pointer;
+    transition: all .2s;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--navy); }
+  .filter-btn.active {
+    background: var(--navy); color: var(--cream); border-color: var(--navy);
+  }
+
+  /* MAIN BLOG GRID */
+  main { padding: 4rem 5vw 6rem; max-width: 1200px; margin: auto; }
+  @media(max-width:780px){ main { padding: 2.5rem 5vw 4rem; } }
+
+  /* FEATURED POST */
+  .featured-section { margin-bottom: 4rem; }
+  .featured-label { font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; display: block; }
+  .featured-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    transition: transform .25s, box-shadow .25s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .featured-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,37,64,.1); }
+  @media(max-width:780px){ .featured-card { grid-template-columns: 1fr; } }
+  .featured-image {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+    min-height: 320px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .featured-image::after {
+    content: ''; position: absolute; bottom: -40px; right: -40px;
+    width: 180px; height: 180px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,74,0.25), transparent 70%);
+  }
+  .featured-icon {
+    font-size: 5rem; position: relative; z-index: 1;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+  }
+  .featured-content { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+  @media(max-width:780px){ .featured-content { padding: 2rem 1.5rem; } }
+  .post-category {
+    display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .8rem;
+  }
+  .featured-content h2 {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700; line-height: 1.15; margin-bottom: 1rem;
+  }
+  .featured-content p { color: var(--slate); line-height: 1.65; font-size: 1rem; margin-bottom: 1.2rem; }
+  .post-meta { font-size: .82rem; color: var(--slate); display: flex; gap: 1rem; }
+  .post-meta strong { color: var(--navy); font-weight: 500; }
+
+  /* POST GRID */
+  .posts-section h2.section-heading {
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700;
+    margin-bottom: 2rem; text-align: center;
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  .post-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+  .post-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,37,64,.1); }
+  .post-image {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .post-image.maths { background: linear-gradient(135deg, #1a2540 0%, #243152 100%); }
+  .post-image.science { background: linear-gradient(135deg, #234e52 0%, #2d6a6a 100%); }
+  .post-image.medicine { background: linear-gradient(135deg, #5a2a3a 0%, #6e3548 100%); }
+  .post-image.tips { background: linear-gradient(135deg, #4a3c1a 0%, #635126 100%); }
+  .post-image-icon {
+    font-size: 3.5rem; position: relative; z-index: 1;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+  }
+  .post-content { padding: 1.6rem; flex: 1; display: flex; flex-direction: column; }
+  .post-content h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; font-weight: 700;
+    line-height: 1.2; margin-bottom: .6rem;
+  }
+  .post-content p { color: var(--slate); font-size: .92rem; line-height: 1.6; margin-bottom: 1rem; flex: 1; }
+
+  .no-posts {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--white);
+    border-radius: 8px;
+    border: 1px dashed var(--border);
+  }
+  .no-posts h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: .6rem; color: var(--slate); }
+  .no-posts p { color: var(--slate); }
+
+  /* CTA SECTION */
+  .blog-cta {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 5rem 5vw;
+    text-align: center;
+    margin-top: 4rem;
+  }
+  .blog-cta h2 {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700; margin-bottom: 1rem;
+  }
+  .blog-cta h2 em { color: var(--gold); font-style: italic; }
+  .blog-cta p { max-width: 600px; margin: 0 auto 1.8rem; line-height: 1.65; color: rgba(248,245,240,.85); }
+  .blog-cta a {
+    display: inline-block; background: var(--gold); color: var(--navy);
+    padding: .9rem 2rem; border-radius: 4px; font-weight: 600;
+    text-decoration: none; transition: transform .2s, background .2s;
+  }
+  .blog-cta a:hover { background: var(--gold-l); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer { background: #111827; color: rgba(248,245,240,.45); padding: 2.5rem 5vw; }
+  .footer-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); }
+  .footer-logo span { color: var(--gold); }
+  footer p { font-size: .8rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(248,245,240,.4); font-size: .8rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Elevate<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Subjects</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="blog.html" style="color: var(--navy); font-weight: 600;">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="tutors.html">Tutor Jobs</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta nav-cta-full">Book a Free Consultation</a>
+  <a href="index.html#contact" class="nav-cta nav-cta-short">Book Now</a>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <svg class="burger-icon-open" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+    <svg class="burger-icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+      <line x1="6" y1="18" x2="18" y2="6"></line>
+    </svg>
+  </button>
+</nav>
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+<aside class="mobile-menu" id="mobile-menu">
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Subjects</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="tutors.html">Tutor Jobs</a>
+  <a href="index.html#contact" class="cta">Book a Free Consultation</a>
+</aside>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="blog-hero-tag">The Elevate Blog</div>
+    <h1>Expert Guides &amp; <em>Study Tips.</em></h1>
+    <p class="blog-hero-sub">Practical advice for students and parents — written by qualified tutors and medical professionals. Covering Maths, Sciences, Medicine admissions, and study technique.</p>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <button class="filter-btn active" data-filter="all">All Posts</button>
+    <button class="filter-btn" data-filter="maths">Mathematics</button>
+    <button class="filter-btn" data-filter="science">Sciences</button>
+    <button class="filter-btn" data-filter="medicine">Medicine Admissions</button>
+    <button class="filter-btn" data-filter="tips">Study Tips</button>
+  </div>
+</div>
+
+<main>
+  <!-- FEATURED POST -->
+  <section class="featured-section" id="featured">
+    <span class="featured-label">Featured Post</span>
+    <a href="post-ucat-guide.html" class="featured-card" data-category="medicine">
+      <div class="featured-image">
+        <span class="featured-icon">🩺</span>
+      </div>
+      <div class="featured-content">
+        <span class="post-category">Medicine Admissions</span>
+        <h2>How to Prepare for the UCAT: A Doctor's Guide</h2>
+        <p>The UCAT is the single biggest hurdle for aspiring medics. Here's a structured, evidence-based plan for preparing — written by a qualified doctor who's been through it.</p>
+        <div class="post-meta">
+          <span><strong>Coming soon</strong></span>
+          <span>· 12 min read</span>
+        </div>
+      </div>
+    </a>
+  </section>
+
+  <!-- POSTS GRID -->
+  <section class="posts-section">
+    <h2 class="section-heading" id="all-posts-heading">All Posts</h2>
+    <div class="posts-grid" id="posts-grid">
+
+      <!-- MEDICINE -->
+      <a href="#" class="post-card" data-category="medicine">
+        <div class="post-image medicine"><span class="post-image-icon">📝</span></div>
+        <div class="post-content">
+          <span class="post-category">Medicine Admissions</span>
+          <h3>Writing a Strong Medicine Personal Statement</h3>
+          <p>What admissions tutors actually look for, common mistakes to avoid, and the structure of a winning statement.</p>
+          <div class="post-meta"><span>Coming soon</span></div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card" data-category="medicine">
+        <div class="post-image medicine"><span class="post-image-icon">🎯</span></div>
+        <div class="post-content">
+          <span class="post-category">Medicine Admissions</span>
+          <h3>Surviving the Medical School MMI Interview</h3>
+          <p>The Multiple Mini Interview format, the stations you'll face, and how to prepare for each one.</p>
+          <div class="post-meta"><span>Coming soon</span></div>
+        </div>
+      </a>
+
+      <!-- MATHS -->
+      <a href="#" class="post-card" data-category="maths">
+        <div class="post-image maths"><span class="post-image-icon">➕</span></div>
+        <div class="post-content">
+          <span class="post-category">Mathematics</span>
+          <h3>The 5 GCSE Maths Topics Students Get Wrong Most</h3>
+          <p>From algebraic fractions to trigonometry — the high-mark topics that catch students out, and how to master them.</p>
+          <div class="post-meta"><span>Coming soon</span></div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card" data-category="maths">
+        <div class="post-image maths"><span class="post-image-icon">📐</span></div>
+        <div class="post-content">
+          <span class="post-category">Mathematics</span>
+          <h3>How to Approach A-Level Mechanics Questions</h3>
+          <p>A step-by-step framework for tackling the trickiest A-Level Maths topic with confidence.</p>
+          <div class="post-meta"><span>Coming soon</span></div>
+        </div>
+      </a>
+
+      <!-- SCIENCE -->
+      <a href="#" class="post-card" data-category="science">
+        <div class="post-image science"><span class="post-image-icon">⚗️</span></div>
+        <div class="post-content">
+          <span class="post-category">Chemistry</span>
+          <h3>How to Revise A-Level Chemistry Effectively</h3>
+          <p>Active recall, practice papers, and the revision framework that actually translates to higher grades.</p>
+          <div class="post-meta"><span>Coming soon</span></div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card" data-category="science">
+        <div class="post-image science"><span class="post-image-icon">🧬</span></div>
+        <div class="post-content">
+          <span class="post-category">Biology</span>
+          <h3>How to Read a Biology Exam Question</h3>
+          <p>The skill no one teaches you — but it's the difference between a B and an A*. Command words, mark schemes, and structure.</p>
+          <div class="post-meta"><span>Coming soon</span></div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card" data-category="science">
+        <div class="post-image science"><span class="post-image-icon">⚛️</span></div>
+        <div class="post-content">
+          <span class="post-category">Physics</span>
+          <h3>A-Level Physics: Mastering Mechanics</h3>
+          <p>Forces, motion, and energy — the foundational topics that unlock the rest of the A-Level Physics syllabus.</p>
+          <div class="post-meta"><span>Coming soon</span></div>
+        </div>
+      </a>
+
+      <!-- TIPS -->
+      <a href="#" class="post-card" data-category="tips">
+        <div class="post-image tips"><span class="post-image-icon">📚</span></div>
+        <div class="post-content">
+          <span class="post-category">Study Tips</span>
+          <h3>The Science of Effective Revision</h3>
+          <p>Spaced repetition, active recall, and interleaving — the evidence-based techniques that beat re-reading every time.</p>
+          <div class="post-meta"><span>Coming soon</span></div>
+        </div>
+      </a>
+
+      <a href="#" class="post-card" data-category="tips">
+        <div class="post-image tips"><span class="post-image-icon">⏱️</span></div>
+        <div class="post-content">
+          <span class="post-category">Study Tips</span>
+          <h3>Building a Realistic GCSE Revision Timetable</h3>
+          <p>How to structure 6 weeks of revision across 8+ subjects without burning out — with a downloadable template.</p>
+          <div class="post-meta"><span>Coming soon</span></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+</main>
+
+<!-- CTA -->
+<section class="blog-cta">
+  <h2>Ready to <em>Get Started?</em></h2>
+  <p>Reading is one thing — getting personalised guidance from a specialist tutor is another. Book a free consultation and we'll match your child with the right tutor for their goals.</p>
+  <a href="index.html#contact">Book a Free Consultation →</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Elevate<span>.</span></div>
+      <p style="margin-top:.3rem;">Maths, Science &amp; Medicine admissions tutoring across the West Midlands &amp; online.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Subjects</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="tutors.html">Tutor Jobs</a>
+    </div>
+    <p>© 2026 Elevate Tutor · Solihull, West Midlands</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    if (burger) burger.classList.remove('open');
+  }
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+    burger.classList.add('open');
+  }
+  if (burger) {
+    burger.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) closeMenu(); else openMenu();
+    });
+    mobileOverlay.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  }
+
+  // Category filtering
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const postCards = document.querySelectorAll('.post-card, .featured-card');
+  const heading = document.getElementById('all-posts-heading');
+  const featured = document.getElementById('featured');
+  const grid = document.getElementById('posts-grid');
+
+  const headingMap = {
+    all: 'All Posts',
+    maths: 'Mathematics',
+    science: 'Sciences',
+    medicine: 'Medicine Admissions',
+    tips: 'Study Tips'
+  };
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      heading.textContent = headingMap[filter];
+
+      // Hide featured section unless 'all' or matching category
+      const featuredCard = featured.querySelector('.featured-card');
+      if (filter === 'all' || featuredCard.dataset.category === filter) {
+        featured.style.display = '';
+      } else {
+        featured.style.display = 'none';
+      }
+
+      // Filter cards
+      let visibleCount = 0;
+      postCards.forEach(card => {
+        if (card.classList.contains('featured-card')) return;
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Show "no posts" message if needed
+      const existingMessage = grid.querySelector('.no-posts');
+      if (existingMessage) existingMessage.remove();
+      if (visibleCount === 0 && filter !== 'all') {
+        const msg = document.createElement('div');
+        msg.className = 'no-posts';
+        msg.innerHTML = '<h3>More posts coming soon</h3><p>We\'re actively writing new content for this category. Check back shortly.</p>';
+        grid.appendChild(msg);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
