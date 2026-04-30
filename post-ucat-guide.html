@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How I Went From 500s to 700+ in the UCAT in Four Weeks | Elevate Tutor</title>
+<meta name="description" content="A doctor's honest guide to UCAT prep — from someone who scored low 500s before scoring 700+ in four weeks of focused revision. The strategy, the pacing, and what actually works.">
+<meta property="og:title" content="How I Went From 500s to 700+ in the UCAT in Four Weeks">
+<meta property="og:description" content="A doctor's honest guide to UCAT prep, written by someone who scored low 500s before scoring 700+ in four weeks of focused revision.">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1a2540;
+    --navy2:  #243152;
+    --gold:   #b8924a;
+    --gold-l: #e8d9c0;
+    --cream:  #f8f5f0;
+    --white:  #ffffff;
+    --slate:  #5a6478;
+    --border: rgba(26,37,64,.1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+  /* NAV (matches site) */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5vw;
+    background: rgba(248,245,240,.92); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,37,64,.08); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: .88rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; white-space: nowrap; }
+  .nav-cta:hover { background: var(--gold); }
+  .nav-cta-short { display: none; }
+  .nav-burger { display: none; background: none; border: none; cursor: pointer; padding: .4rem; margin-left: .5rem; position: relative; z-index: 101; }
+  .nav-burger svg { width: 24px; height: 24px; stroke: var(--navy); display: block; }
+  .nav-burger .burger-icon-close { display: none; }
+  .nav-burger.open .burger-icon-open { display: none; }
+  .nav-burger.open .burger-icon-close { display: block; }
+
+  .mobile-menu {
+    position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh;
+    background: var(--cream); box-shadow: -4px 0 24px rgba(26,37,64,.12);
+    padding: 5rem 2rem 2rem; z-index: 99;
+    transition: right .3s ease;
+    display: flex; flex-direction: column; gap: 1.4rem;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    font-size: 1rem; font-weight: 500; color: var(--navy); text-decoration: none;
+    padding: .5rem 0; border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a.cta {
+    background: var(--navy); color: var(--cream); border: none;
+    padding: .9rem 1rem; border-radius: 4px; text-align: center;
+    font-weight: 600; margin-top: 1rem;
+  }
+  .mobile-overlay {
+    position: fixed; inset: 0; background: rgba(26,37,64,.4);
+    opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; z-index: 98;
+  }
+  .mobile-overlay.open { opacity: 1; visibility: visible; }
+
+  @media(max-width:780px){
+    nav { padding: .85rem 5vw; }
+    .nav-links { display: none; }
+    .nav-burger { display: inline-flex; }
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline-block; padding: .55rem 1.1rem; font-size: .85rem; }
+  }
+  @media(max-width:380px){
+    .nav-cta-short { display: none; }
+    .nav-logo { font-size: 1.4rem; }
+  }
+
+  /* POST HEADER */
+  .post-header {
+    padding: 8rem 5vw 4rem;
+    background: var(--navy);
+    color: var(--cream);
+    position: relative; overflow: hidden;
+  }
+  .post-header::before {
+    content: ''; position: absolute; top: -120px; right: -120px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,74,0.18), transparent 70%);
+  }
+  .post-header-inner { max-width: 760px; margin: auto; position: relative; z-index: 2; }
+  .breadcrumb { font-size: .82rem; color: rgba(248,245,240,.65); margin-bottom: 1.5rem; }
+  .breadcrumb a { color: var(--gold-l); text-decoration: none; transition: color .2s; }
+  .breadcrumb a:hover { color: var(--gold); }
+  .post-category-tag {
+    display: inline-block; padding: .35rem 1rem;
+    border: 1px solid rgba(232,217,192,.4); border-radius: 100px;
+    font-size: .76rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold-l); margin-bottom: 1.5rem;
+  }
+  .post-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700; line-height: 1.08;
+    margin-bottom: 1.5rem;
+  }
+  .post-byline {
+    display: flex; align-items: center; gap: 1rem;
+    padding-top: 1.5rem; border-top: 1px solid rgba(248,245,240,.15);
+  }
+  .post-author-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .post-author-meta { font-size: .9rem; color: rgba(248,245,240,.85); }
+  .post-author-meta strong { color: var(--cream); display: block; font-weight: 600; }
+  .post-author-meta span { font-size: .82rem; }
+
+  /* ARTICLE BODY */
+  article {
+    max-width: 720px; margin: 0 auto; padding: 4rem 5vw;
+    background: var(--cream);
+  }
+  @media(max-width:780px){ article { padding: 2.5rem 5vw; } }
+  article p, article ul, article ol {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--navy);
+    margin-bottom: 1.4rem;
+    font-weight: 400;
+  }
+  article p strong { font-weight: 600; }
+  article h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 700; line-height: 1.2;
+    margin-top: 3rem; margin-bottom: 1.3rem;
+    color: var(--navy);
+  }
+  article h2:first-of-type { margin-top: 0; }
+  article ul, article ol { padding-left: 1.4rem; }
+  article ul li, article ol li {
+    margin-bottom: .7rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  article ul li::marker { color: var(--gold); }
+  article ol li::marker { color: var(--gold); font-weight: 600; }
+  article .lead {
+    font-size: 1.18rem; line-height: 1.65;
+    color: var(--slate);
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  article em { font-style: italic; }
+  article .pullquote {
+    border-left: 3px solid var(--gold);
+    padding: .3rem 0 .3rem 1.4rem;
+    margin: 2rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  article .aside {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 1.6rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+  }
+  article .aside p { font-size: .98rem; margin-bottom: 0; color: var(--slate); }
+  article .aside p strong { color: var(--navy); }
+
+  /* CTA BLOCK INSIDE POST */
+  .post-cta {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 3rem 2rem;
+    margin: 4rem auto 0;
+    max-width: 720px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .post-cta h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 700;
+    margin-bottom: .8rem;
+  }
+  .post-cta h3 em { color: var(--gold); font-style: italic; }
+  .post-cta p {
+    color: rgba(248,245,240,.85);
+    line-height: 1.65; margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+  .post-cta a {
+    display: inline-block; background: var(--gold); color: var(--navy);
+    padding: .85rem 1.8rem; border-radius: 4px; font-weight: 600;
+    text-decoration: none; transition: transform .2s, background .2s;
+  }
+  .post-cta a:hover { background: var(--gold-l); transform: translateY(-2px); }
+
+  /* RELATED POSTS */
+  .related {
+    max-width: 1200px; margin: 5rem auto 0;
+    padding: 0 5vw 6rem;
+  }
+  .related-label {
+    font-size: .74rem; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold);
+    text-align: center; display: block; margin-bottom: .8rem;
+  }
+  .related h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 700;
+    text-align: center; margin-bottom: 2.5rem;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .related-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+  }
+  .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(26,37,64,.1); }
+  .related-image {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #5a2a3a 0%, #6e3548 100%);
+  }
+  .related-image-icon { font-size: 2.6rem; }
+  .related-content { padding: 1.4rem 1.4rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
+  .related-cat {
+    font-size: .7rem; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .related-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 700;
+    line-height: 1.25; margin-bottom: .5rem;
+  }
+  .related-content p {
+    font-size: .9rem; color: var(--slate);
+    line-height: 1.55;
+  }
+
+  /* FOOTER */
+  footer { background: #111827; color: rgba(248,245,240,.45); padding: 2.5rem 5vw; }
+  .footer-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); }
+  .footer-logo span { color: var(--gold); }
+  footer p { font-size: .8rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(248,245,240,.4); font-size: .8rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Elevate<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Subjects</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="blog.html" style="color: var(--navy); font-weight: 600;">Blog</a></li>
+    <li><a href="index.html#testimonials">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="tutors.html">Tutor Jobs</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta nav-cta-full">Book a Free Consultation</a>
+  <a href="index.html#contact" class="nav-cta nav-cta-short">Book Now</a>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <svg class="burger-icon-open" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+    <svg class="burger-icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+      <line x1="6" y1="18" x2="18" y2="6"></line>
+    </svg>
+  </button>
+</nav>
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+<aside class="mobile-menu" id="mobile-menu">
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Subjects</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#testimonials">Reviews</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="tutors.html">Tutor Jobs</a>
+  <a href="index.html#contact" class="cta">Book a Free Consultation</a>
+</aside>
+
+<!-- POST HEADER -->
+<header class="post-header">
+  <div class="post-header-inner">
+    <div class="breadcrumb"><a href="blog.html">Blog</a> &nbsp;›&nbsp; Medicine Admissions</div>
+    <span class="post-category-tag">Medicine Admissions</span>
+    <h1>How I Went From 500s to 700+ in the UCAT in Four Weeks</h1>
+    <div class="post-byline">
+      <div class="post-author-avatar">E</div>
+      <div class="post-author-meta">
+        <strong>Elevate Tutor Team</strong>
+        <span>Written by a qualified doctor &nbsp;·&nbsp; 8 min read</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <p class="lead">The UCAT isn't like any exam you've done before. GCSEs and A-Levels give you time to think, check your work, come back to questions later. The UCAT gives you none of that. Two hours of sustained, sprint-pace decision-making with no second chances. Future exams probably won't feel like this either, which is part of what makes it so disorienting.</p>
+
+  <p>I'm not someone who naturally thrived in this exam. I averaged in the low 500s for weeks before something clicked and I scored over 700 in four weeks of focused prep. What follows is what worked, and what I'd tell anyone who asks me about it.</p>
+
+  <h2>Treat the prep like training, not cramming</h2>
+
+  <p>Before anything else, accept that this is a mental endurance exam.</p>
+
+  <p>Imagine going for a run, but instead of jogging you're sprinting the whole time. That's roughly what UCAT prep feels like. You don't realise how exhausting it is until you've done a few sessions, and most people underestimate it badly.</p>
+
+  <p>Practical rules I'd give anyone:</p>
+  <ul>
+    <li>Cap study sessions at 2.5 hours. If you feel yourself slowing down before that, stop. There's no prize for sitting at the desk longer.</li>
+    <li>Build in actual breaks. Eat properly, see people, do things that have nothing to do with revision. Burnout in the final week is a real possibility, and there's nothing more demoralising than feeling like you've made progress, sitting a tired mock, scoring badly, and feeling back at square one.</li>
+    <li>Give yourself 4 to 6 weeks total. Less than that and you're rushing. More than that and you'll plateau and start losing interest before the actual exam.</li>
+  </ul>
+
+  <h2>Start with a mock, but ignore the score</h2>
+
+  <p>The first thing to do is sit a full mock. Not to find out how good you are. To find out where you're worst.</p>
+
+  <p>I want to be clear about this: your overall score will not be good. Unless you're in the 1% who walks in and scores 700 cold, your mock score will be discouraging. Ignore it. The number isn't the point.</p>
+
+  <p>What you're looking for is the spread. You might breeze through Verbal Reasoning (unlikely) and get destroyed by Quantitative Reasoning. You might find Decision Making manageable but Situational Judgement a complete unknown. That spread tells you where to spend your time over the next few weeks. Without it, you'll waste hours practising the things you're already okay at, which is a common mistake.</p>
+
+  <div class="aside">
+    <p><strong>Section-specific tips coming soon.</strong> In upcoming posts I'll break down each section of the UCAT individually — including the patterns that come up most, the timing strategy that works for each, and the techniques worth practising. Bookmark the <a href="blog.html" style="color: var(--gold); text-decoration: underline;">blog</a> or check back in a few weeks.</p>
+  </div>
+
+  <h2>Untimed first, then timed</h2>
+
+  <p>This is the structural thing most people get wrong. They start timed practice on day one because that's what the real exam is, and assume that's how you should train.</p>
+
+  <p>It isn't. Start untimed.</p>
+
+  <p>The UCAT is repetitive. The same question types come up again and again, dressed up in different surface details. If you start with untimed practice, you start to recognise the patterns. You can sit with a question, work out what's actually being asked, and develop your own approach for that question type. Some people make notes on the patterns they spot. Others just internalise them. Either way, this matters more than speed in the early stage.</p>
+
+  <p>Once you understand the question types, then you can start working on speed. I split my four weeks roughly 25/75: one week of untimed practice to learn the patterns, three weeks of timed practice to get fast under pressure. If you're prepping over six weeks, that becomes more like 1.5 weeks untimed and 4.5 weeks timed.</p>
+
+  <p>The mistake to avoid is staying untimed for too long. The exam is brutal because of the clock. You have to spend most of your prep with the clock on.</p>
+
+  <h2>What to actually pay for</h2>
+
+  <p><strong>Medify. Medify, Medify, Medify.</strong></p>
+
+  <p>The question banks are huge, you can filter by section, you can choose timed or untimed, and the analytics tell you how you compared to everyone else who sat the same questions. For four weeks of access, it's the single best money you'll spend.</p>
+
+  <p>Some schools run UCAT sessions, the Medic Portal does courses, and various tutoring agencies offer UCAT prep. I'd say this:</p>
+
+  <p><strong>Worth doing:</strong> one introductory session at the start of your prep with someone who's actually sat the exam recently and scored well. They can save you days of figuring out the question types from scratch, and tell you which sections respond to technique versus which sections respond to volume. An hour or two of this, early on, is genuinely useful.</p>
+
+  <p><strong>Not worth doing:</strong> weekly 1-to-1 tutoring across your whole prep. The UCAT isn't a knowledge exam. It's a pattern recognition and speed exam. You learn to do it by doing it, in volume, on Medify, with your own reflection on what went wrong. Sitting with a tutor for an hour a week is a slow, expensive way to do something that's actually faster done alone.</p>
+
+  <p style="font-size: .95rem; color: var(--slate); font-style: italic;">(I'm aware this is a slightly odd thing for a tutoring company to publish. We do offer UCAT support, but we'd rather tell you the truth about what works than sell you sessions you don't need.)</p>
+
+  <h2>The honest summary</h2>
+
+  <p>Four weeks, 4 to 6 hours a day, mostly on Medify, with one early session to orient yourself and a discipline around stopping when you're tired. That's the playbook.</p>
+
+  <p>If you're thinking about applying to medicine, the UCAT is one of several gates you have to walk through. It feels overwhelming when you start. It becomes manageable surprisingly quickly once you treat it as a skill to train rather than a knowledge exam to revise.</p>
+
+  <p class="pullquote">You can do this.</p>
+
+  <div class="post-cta">
+    <h3>Beyond the UCAT, we can <em>help.</em></h3>
+    <p>Personal statements and medical school interviews are where 1-to-1 guidance genuinely makes the difference. If you're working through medicine applications and want support from tutors who've been through it, we'd love to talk.</p>
+    <a href="index.html#contact">Book a Free Consultation</a>
+  </div>
+</article>
+
+<!-- RELATED POSTS -->
+<section class="related">
+  <span class="related-label">Continue Reading</span>
+  <h2>More on Medicine Admissions</h2>
+  <div class="related-grid">
+    <a href="#" class="related-card">
+      <div class="related-image"><span class="related-image-icon">📝</span></div>
+      <div class="related-content">
+        <span class="related-cat">Medicine Admissions</span>
+        <h3>Writing a Strong Medicine Personal Statement</h3>
+        <p>What admissions tutors actually look for, common mistakes to avoid, and the structure of a winning statement.</p>
+      </div>
+    </a>
+    <a href="#" class="related-card">
+      <div class="related-image"><span class="related-image-icon">🎯</span></div>
+      <div class="related-content">
+        <span class="related-cat">Medicine Admissions</span>
+        <h3>Surviving the Medical School MMI Interview</h3>
+        <p>The Multiple Mini Interview format, the stations you'll face, and how to prepare for each one.</p>
+      </div>
+    </a>
+    <a href="blog.html" class="related-card">
+      <div class="related-image" style="background: linear-gradient(135deg, #1a2540 0%, #243152 100%);"><span class="related-image-icon">📚</span></div>
+      <div class="related-content">
+        <span class="related-cat">All Posts</span>
+        <h3>See All Articles</h3>
+        <p>Browse our complete library of guides on Maths, Sciences, and Medicine admissions.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Elevate<span>.</span></div>
+      <p style="margin-top:.3rem;">Maths, Science &amp; Medicine admissions tutoring across the West Midlands &amp; online.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Subjects</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#testimonials">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="tutors.html">Tutor Jobs</a>
+    </div>
+    <p>© 2026 Elevate Tutor · Solihull, West Midlands</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    if (burger) burger.classList.remove('open');
+  }
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+    burger.classList.add('open');
+  }
+  if (burger) {
+    burger.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) closeMenu(); else openMenu();
+    });
+    mobileOverlay.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  }
+</script>
+
+</body>
+</html>
