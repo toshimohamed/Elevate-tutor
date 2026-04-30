@@ -38,9 +38,50 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-size: .88rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
   .nav-links a:hover { color: var(--navy); }
-  .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; }
+  .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; white-space: nowrap; }
   .nav-cta:hover { background: var(--gold); }
-  @media(max-width:700px){ .nav-links { display:none; } }
+  .nav-cta-short { display: none; }
+  .nav-burger { display: none; background: none; border: none; cursor: pointer; padding: .4rem; margin-left: .5rem; position: relative; z-index: 101; }
+  .nav-burger svg { width: 24px; height: 24px; stroke: var(--navy); display: block; }
+  .nav-burger .burger-icon-close { display: none; }
+  .nav-burger.open .burger-icon-open { display: none; }
+  .nav-burger.open .burger-icon-close { display: block; }
+
+  .mobile-menu {
+    position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh;
+    background: var(--cream); box-shadow: -4px 0 24px rgba(26,37,64,.12);
+    padding: 5rem 2rem 2rem; z-index: 99;
+    transition: right .3s ease;
+    display: flex; flex-direction: column; gap: 1.4rem;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    font-size: 1rem; font-weight: 500; color: var(--navy); text-decoration: none;
+    padding: .5rem 0; border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a.cta {
+    background: var(--navy); color: var(--cream); border: none;
+    padding: .9rem 1rem; border-radius: 4px; text-align: center;
+    font-weight: 600; margin-top: 1rem;
+  }
+  .mobile-overlay {
+    position: fixed; inset: 0; background: rgba(26,37,64,.4);
+    opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; z-index: 98;
+  }
+  .mobile-overlay.open { opacity: 1; visibility: visible; }
+
+  @media(max-width:780px){
+    nav { padding: .85rem 5vw; }
+    .nav-links { display: none; }
+    .nav-burger { display: inline-flex; }
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline-block; padding: .55rem 1.1rem; font-size: .85rem; }
+    section { padding: 4rem 5vw; }
+  }
+  @media(max-width:380px){
+    .nav-cta-short { display: none; }
+    .nav-logo { font-size: 1.4rem; }
+  }
 
   /* HERO */
   .tutor-hero {
@@ -181,8 +222,31 @@
     <li><a href="index.html#contact">Contact</a></li>
     <li><a href="tutors.html" style="color: var(--navy); font-weight: 600;">Tutor Jobs</a></li>
   </ul>
-  <a href="#apply" class="nav-cta">Apply Now</a>
+  <a href="#apply" class="nav-cta nav-cta-full">Apply Now</a>
+  <a href="#apply" class="nav-cta nav-cta-short">Apply</a>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <svg class="burger-icon-open" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+    <svg class="burger-icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+      <line x1="6" y1="18" x2="18" y2="6"></line>
+    </svg>
+  </button>
 </nav>
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+<aside class="mobile-menu" id="mobile-menu">
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Subjects</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="index.html#testimonials">Reviews</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="tutors.html">Tutor Jobs</a>
+  <a href="#apply" class="cta">Apply Now</a>
+</aside>
 
 <!-- HERO -->
 <section class="tutor-hero">
@@ -335,7 +399,7 @@
       <div class="apply-form">
         <div class="form-title">Tutor Application</div>
         <div class="form-subtitle">All fields are required unless marked optional.</div>
-        <form id="tutor-form" action="https://formspree.io/f/xjgjnnpv" method="POST">
+        <form id="tutor-form" action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
           <div class="form-row">
             <div><label>Full Name</label><input type="text" name="name" placeholder="e.g. Alex Patel" required></div>
             <div><label>Email Address</label><input type="email" name="email" placeholder="alex@example.com" required></div>
@@ -466,6 +530,32 @@
 <script>
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    if (burger) burger.classList.remove('open');
+  }
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+    burger.classList.add('open');
+  }
+  if (burger) {
+    burger.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+    mobileOverlay.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  }
 
   const revealEls = document.querySelectorAll('.reveal');
   revealEls.forEach(r => r.classList.add('hidden'));
