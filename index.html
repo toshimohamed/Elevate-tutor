@@ -117,11 +117,6 @@
   .btn-gold:hover { background: #a07a3a; transform: translateY(-1px); }
   .btn-ghost { border: 1.5px solid rgba(248,245,240,.25); color: rgba(248,245,240,.8); padding: .85rem 2rem; border-radius: 4px; font-weight: 500; font-size: .95rem; text-decoration: none; transition: all .2s; }
   .btn-ghost:hover { border-color: rgba(248,245,240,.6); color: var(--white); }
-  .hero-stats { margin-top: 3.5rem; display: flex; gap: 2.5rem; flex-wrap: wrap; animation: fadeUp .7s .45s ease both; }
-  .stat { border-left: 2px solid rgba(184,146,74,.4); padding-left: 1.2rem; }
-  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 700; color: var(--white); line-height: 1; }
-  .stat-num span { color: var(--gold); }
-  .stat-label { font-size: .78rem; font-weight: 500; color: rgba(248,245,240,.5); letter-spacing: .06em; text-transform: uppercase; margin-top: .15rem; }
 
   /* Hero card */
   .hero-visual { animation: fadeUp .7s .2s ease both; }
@@ -149,12 +144,66 @@
 
   /* ABOUT */
   #about { background: var(--white); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 4.5rem; align-items: center; }
   @media(max-width:800px){ .about-grid { grid-template-columns: 1fr; gap: 3rem; } }
-  .about-img { background: var(--navy); border-radius: 12px; aspect-ratio: 4/3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .about-img-inner { font-family: 'Cormorant Garamond', serif; font-size: 9rem; font-weight: 700; color: rgba(255,255,255,.06); position: absolute; bottom: -1rem; right: 1rem; line-height: 1; }
-  .about-badge { position: absolute; bottom: 1.8rem; left: 1.8rem; background: var(--gold); color: var(--white); padding: .8rem 1.3rem; border-radius: 8px; font-size: .82rem; font-weight: 600; line-height: 1.4; }
-  .about-badge span { display: block; font-size: 1.6rem; font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+
+  /* Visual block: graphic + stats */
+  .about-visual { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .about-graphic {
+    background: var(--navy);
+    border-radius: 12px;
+    aspect-ratio: 4/3;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .about-graphic::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,74,0.22), transparent 70%);
+  }
+  .about-graphic::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -50px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,74,0.1), transparent 70%);
+  }
+  .about-graphic-svg { position: relative; z-index: 2; width: 75%; max-width: 320px; height: auto; }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .8rem;
+  }
+  .stat-card {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+    border-left: 3px solid var(--gold);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: .25rem;
+  }
+  .stat-label {
+    font-size: .78rem;
+    color: var(--slate);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
   .about-text p { font-size: .97rem; color: var(--slate); line-height: 1.8; margin-bottom: 1.2rem; font-weight: 300; }
   .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
   .pillar { background: var(--cream); border-radius: 8px; padding: 1.2rem; border-left: 3px solid var(--gold); }
@@ -302,26 +351,12 @@
 <section id="hero">
   <div class="hero-grid">
     <div>
-      <div class="hero-tag">Maths · Science · Medicine Admissions · KS3–A-Level</div>
+      <div class="hero-tag">Maths · Science · Medicine Admissions · KS3 to A-Level</div>
       <h1>Specialist Tutoring<br><em>That Opens</em><br>Doors.</h1>
       <p class="hero-sub">Expert tutoring in Maths and Science from KS3 to A-Level, plus dedicated Medicine admissions support. We help ambitious students achieve top grades and secure places at the universities they aspire to.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-gold">Book a Free Consultation</a>
         <a href="#about" class="btn-ghost">Learn More</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-num">500<span>+</span></div>
-          <div class="stat-label">Students Supported</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">98<span>%</span></div>
-          <div class="stat-label">Pass Rate</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">KS3<span>–</span>A</div>
-          <div class="stat-label">All Year Groups</div>
-        </div>
       </div>
     </div>
     <div class="hero-visual">
@@ -358,19 +393,71 @@
 <section id="about">
   <div class="inner">
     <div class="about-grid">
-      <div class="about-img reveal">
-        <div class="about-img-inner">E</div>
-        <div class="about-badge"><span>7+</span>Years of Excellence</div>
+      <div class="about-visual reveal">
+        <div class="about-graphic">
+          <svg class="about-graphic-svg" viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+            <!-- Open book with rising elements -->
+            <!-- Book base -->
+            <g transform="translate(40, 130)">
+              <!-- Left page -->
+              <path d="M 0 50 Q 0 10, 110 10 L 110 60 Q 0 60, 0 50 Z" fill="#f8f5f0" opacity="0.95"/>
+              <path d="M 0 50 Q 0 10, 110 10" stroke="#b8924a" stroke-width="1.5" fill="none" opacity="0.6"/>
+              <!-- Right page -->
+              <path d="M 240 50 Q 240 10, 130 10 L 130 60 Q 240 60, 240 50 Z" fill="#f8f5f0" opacity="0.95"/>
+              <path d="M 240 50 Q 240 10, 130 10" stroke="#b8924a" stroke-width="1.5" fill="none" opacity="0.6"/>
+              <!-- Spine -->
+              <line x1="120" y1="10" x2="120" y2="60" stroke="#b8924a" stroke-width="2"/>
+              <!-- Page lines (left) -->
+              <line x1="20" y1="25" x2="95" y2="25" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+              <line x1="20" y1="33" x2="100" y2="33" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+              <line x1="20" y1="41" x2="85" y2="41" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+              <!-- Page lines (right) -->
+              <line x1="145" y1="25" x2="220" y2="25" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+              <line x1="140" y1="33" x2="220" y2="33" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+              <line x1="155" y1="41" x2="220" y2="41" stroke="#5a6478" stroke-width="0.8" opacity="0.5"/>
+            </g>
+            <!-- Rising arrow / elevation motif -->
+            <g transform="translate(160, 50)">
+              <!-- Arrow shaft -->
+              <line x1="0" y1="60" x2="0" y2="-5" stroke="#b8924a" stroke-width="3" stroke-linecap="round"/>
+              <!-- Arrow head -->
+              <path d="M -12 8 L 0 -5 L 12 8" stroke="#b8924a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <!-- Floating accent dots -->
+            <circle cx="80" cy="60" r="3" fill="#b8924a" opacity="0.7"/>
+            <circle cx="245" cy="80" r="2.5" fill="#b8924a" opacity="0.5"/>
+            <circle cx="60" cy="100" r="2" fill="#b8924a" opacity="0.4"/>
+            <circle cx="265" cy="115" r="3" fill="#b8924a" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">DBS-checked tutors</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">1-to-1</div>
+            <div class="stat-label">Personalised sessions</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">KS3 to A-Level</div>
+            <div class="stat-label">Levels covered</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">NHS</div>
+            <div class="stat-label">Doctor-founded</div>
+          </div>
+        </div>
       </div>
       <div class="about-text reveal">
         <div class="section-label">Our Story</div>
         <h2 class="section-title">Founded by a Doctor<br>Who Never Stopped<br><em style="color:var(--gold);font-style:italic;">Loving to Teach</em></h2>
-        <p style="margin-top:1.2rem;">Elevate Tutor was born out of a genuine passion for teaching. Our founder — a qualified doctor — spent the entirety of medical school tutoring students in Maths and Science, and discovered something unexpected: the classroom was just as fulfilling as the clinic.</p>
-        <p>That experience also revealed something important. Students aspiring to study Medicine were rarely getting the calibre of admissions support they needed — guidance from someone who had actually navigated the UCAT, written a successful personal statement, and sat the medical school interviews themselves. So Elevate Tutor was created to fill that gap, while delivering the same expert support across Maths, Biology, Chemistry, and Physics from KS3 to A-Level.</p>
-        <p>Based in Solihull, we work with students across the West Midlands and beyond — both in-person and online. Every session is shaped by the same ethos: no shortcuts, no generic worksheets, just expert support tailored to your child.</p>
+        <p style="margin-top:1.2rem;">Elevate Tutor was founded by an NHS doctor who tutored students throughout medical school in Maths and Science, and discovered something unexpected: the classroom was just as fulfilling as the clinic.</p>
+        <p>That experience also revealed something important. Students aspiring to study Medicine were rarely getting the calibre of admissions support they needed. Guidance from someone who had actually navigated the UCAT, written a successful personal statement, and sat the medical school interviews themselves. So Elevate Tutor was created to fill that gap, while delivering the same expert support across Maths, Biology, Chemistry, and Physics from KS3 to A-Level.</p>
+        <p>Based in Solihull, we work with students online across the UK. Every session is shaped by the same ethos: no shortcuts, no generic worksheets, just expert support tailored to your child.</p>
         <div class="about-pillars">
           <div class="pillar"><h4>Personalised Learning</h4><p>Every student gets a plan built around their specific gaps and goals.</p></div>
-          <div class="pillar"><h4>Specialist Tutors</h4><p>Subject specialists and medical professionals with proven results.</p></div>
+          <div class="pillar"><h4>Specialist Tutors</h4><p>Subject specialists and medical professionals personally vetted by the founder.</p></div>
           <div class="pillar"><h4>Regular Feedback</h4><p>Parents receive progress updates after every session block.</p></div>
           <div class="pillar"><h4>Flexible Scheduling</h4><p>Sessions built around your family's timetable.</p></div>
         </div>
@@ -416,7 +503,7 @@
         <div class="svc-icon">🩺</div>
         <div class="svc-level">UCAS Applicants</div>
         <h3>UCAT Preparation</h3>
-        <p>Targeted preparation for every UCAT section — Verbal Reasoning, Decision Making, Quantitative Reasoning, Abstract Reasoning, and Situational Judgement.</p>
+        <p>Targeted preparation for every UCAT section — Verbal Reasoning, Decision Making, Quantitative Reasoning, and Situational Judgement.</p>
       </div>
       <div class="service-card">
         <div class="svc-icon">📝</div>
@@ -551,7 +638,7 @@
           <div class="trust-item">Free initial consultation — no obligation</div>
           <div class="trust-item">No long-term contracts required</div>
           <div class="trust-item">Qualified, DBS-checked tutors</div>
-          <div class="trust-item">Flexible online or in-person sessions</div>
+          <div class="trust-item">Flexible online sessions to suit your schedule</div>
           <div class="trust-item">Regular parent progress updates</div>
         </div>
       </div>
