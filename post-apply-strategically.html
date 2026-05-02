@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply Strategically: The Most Important Part of Your Medicine Application | Elevate Tutor</title>
+<meta name="description" content="Where you apply to medical school matters more than your UCAT or GCSEs. A doctor's guide to choosing your four UCAS choices strategically, with a real example.">
+<meta property="og:title" content="Apply Strategically: The Most Important Part of Your Medicine Application">
+<meta property="og:description" content="Where you choose to apply matters more than your numbers. Most applicants don't realise this until it's too late.">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1a2540;
+    --navy2:  #243152;
+    --gold:   #b8924a;
+    --gold-l: #e8d9c0;
+    --cream:  #f8f5f0;
+    --white:  #ffffff;
+    --slate:  #5a6478;
+    --border: rgba(26,37,64,.1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+  /* NAV (matches site) */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5vw;
+    background: rgba(248,245,240,.92); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,37,64,.08); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: .88rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; white-space: nowrap; }
+  .nav-cta:hover { background: var(--gold); }
+  .nav-cta-short { display: none; }
+  .nav-burger { display: none; background: none; border: none; cursor: pointer; padding: .4rem; margin-left: .5rem; position: relative; z-index: 101; }
+  .nav-burger svg { width: 24px; height: 24px; stroke: var(--navy); display: block; }
+  .nav-burger .burger-icon-close { display: none; }
+  .nav-burger.open .burger-icon-open { display: none; }
+  .nav-burger.open .burger-icon-close { display: block; }
+
+  .mobile-menu {
+    position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh;
+    background: var(--cream); box-shadow: -4px 0 24px rgba(26,37,64,.12);
+    padding: 5rem 2rem 2rem; z-index: 99;
+    transition: right .3s ease;
+    display: flex; flex-direction: column; gap: 1.4rem;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    font-size: 1rem; font-weight: 500; color: var(--navy); text-decoration: none;
+    padding: .5rem 0; border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a.cta {
+    background: var(--navy); color: var(--cream); border: none;
+    padding: .9rem 1rem; border-radius: 4px; text-align: center;
+    font-weight: 600; margin-top: 1rem;
+  }
+  .mobile-overlay {
+    position: fixed; inset: 0; background: rgba(26,37,64,.4);
+    opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; z-index: 98;
+  }
+  .mobile-overlay.open { opacity: 1; visibility: visible; }
+
+  @media(max-width:780px){
+    nav { padding: .85rem 5vw; }
+    .nav-links { display: none; }
+    .nav-burger { display: inline-flex; }
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline-block; padding: .55rem 1.1rem; font-size: .85rem; }
+  }
+  @media(max-width:380px){
+    .nav-cta-short { display: none; }
+    .nav-logo { font-size: 1.4rem; }
+  }
+
+  /* POST HEADER */
+  .post-header {
+    padding: 8rem 5vw 4rem;
+    background: var(--navy);
+    color: var(--cream);
+    position: relative; overflow: hidden;
+  }
+  .post-header::before {
+    content: ''; position: absolute; top: -120px; right: -120px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,74,0.18), transparent 70%);
+  }
+  .post-header-inner { max-width: 760px; margin: auto; position: relative; z-index: 2; }
+  .breadcrumb { font-size: .82rem; color: rgba(248,245,240,.65); margin-bottom: 1.5rem; }
+  .breadcrumb a { color: var(--gold-l); text-decoration: none; transition: color .2s; }
+  .breadcrumb a:hover { color: var(--gold); }
+  .post-category-tag {
+    display: inline-block; padding: .35rem 1rem;
+    border: 1px solid rgba(232,217,192,.4); border-radius: 100px;
+    font-size: .76rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold-l); margin-bottom: 1.5rem;
+  }
+  .post-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700; line-height: 1.08;
+    margin-bottom: 1.5rem;
+  }
+  .post-byline {
+    display: flex; align-items: center; gap: 1rem;
+    padding-top: 1.5rem; border-top: 1px solid rgba(248,245,240,.15);
+  }
+  .post-author-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .post-author-meta { font-size: .9rem; color: rgba(248,245,240,.85); }
+  .post-author-meta strong { color: var(--cream); display: block; font-weight: 600; }
+  .post-author-meta span { font-size: .82rem; }
+
+  /* ARTICLE BODY */
+  article {
+    max-width: 720px; margin: 0 auto; padding: 4rem 5vw;
+    background: var(--cream);
+  }
+  @media(max-width:780px){ article { padding: 2.5rem 5vw; } }
+  article p, article ul, article ol {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--navy);
+    margin-bottom: 1.4rem;
+    font-weight: 400;
+  }
+  article p strong { font-weight: 600; }
+  article h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 700; line-height: 1.2;
+    margin-top: 3rem; margin-bottom: 1.3rem;
+    color: var(--navy);
+  }
+  article h2:first-of-type { margin-top: 0; }
+  article ul, article ol { padding-left: 1.4rem; }
+  article ul li, article ol li {
+    margin-bottom: .7rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  article ul li::marker { color: var(--gold); }
+  article ol li::marker { color: var(--gold); font-weight: 600; }
+  article .lead {
+    font-size: 1.18rem; line-height: 1.65;
+    color: var(--slate);
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  article em { font-style: italic; }
+  article .pullquote {
+    border-left: 3px solid var(--gold);
+    padding: .3rem 0 .3rem 1.4rem;
+    margin: 2rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  article .aside {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 1.6rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+  }
+  article .aside p { font-size: .98rem; margin-bottom: 0; color: var(--slate); }
+  article .aside p strong { color: var(--navy); }
+
+  /* Week schedule */
+  .schedule { margin: 2rem 0; }
+  .week-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .week-block h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: .8rem;
+  }
+  .week-block h4 span {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 600;
+  }
+  .week-block p {
+    font-size: .98rem;
+    line-height: 1.65;
+    color: var(--slate);
+    margin-bottom: .6rem;
+  }
+  .week-block p:last-child { margin-bottom: 0; }
+  .week-block ul {
+    margin: .5rem 0 0 0;
+    padding-left: 1.3rem;
+  }
+  .week-block ul li {
+    font-size: .94rem;
+    line-height: 1.6;
+    margin-bottom: .35rem;
+    color: var(--slate);
+  }
+  .week-block ul li::marker { color: var(--gold); }
+
+  /* CTA BLOCK INSIDE POST */
+  .post-cta {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 3rem 2rem;
+    margin: 4rem auto 0;
+    max-width: 720px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .post-cta h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 700;
+    margin-bottom: .8rem;
+  }
+  .post-cta h3 em { color: var(--gold); font-style: italic; }
+  .post-cta p {
+    color: rgba(248,245,240,.85);
+    line-height: 1.65; margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+  .post-cta a {
+    display: inline-block; background: var(--gold); color: var(--navy);
+    padding: .85rem 1.8rem; border-radius: 4px; font-weight: 600;
+    text-decoration: none; transition: transform .2s, background .2s;
+  }
+  .post-cta a:hover { background: var(--gold-l); transform: translateY(-2px); }
+
+  /* RELATED POSTS */
+  .related {
+    max-width: 1200px; margin: 5rem auto 0;
+    padding: 0 5vw 6rem;
+  }
+  .related-label {
+    font-size: .74rem; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold);
+    text-align: center; display: block; margin-bottom: .8rem;
+  }
+  .related h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 700;
+    text-align: center; margin-bottom: 2.5rem;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .related-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+  }
+  .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(26,37,64,.1); }
+  .related-image {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #5a2a3a 0%, #6e3548 100%);
+  }
+  .related-image-icon { font-size: 2.6rem; }
+  .related-content { padding: 1.4rem 1.4rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
+  .related-cat {
+    font-size: .7rem; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .related-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 700;
+    line-height: 1.25; margin-bottom: .5rem;
+  }
+  .related-content p {
+    font-size: .9rem; color: var(--slate);
+    line-height: 1.55;
+  }
+
+  /* FOOTER */
+  footer { background: #111827; color: rgba(248,245,240,.45); padding: 2.5rem 5vw; }
+  .footer-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); }
+  .footer-logo span { color: var(--gold); }
+  footer p { font-size: .8rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(248,245,240,.4); font-size: .8rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Elevate<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Subjects</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="blog.html" style="color: var(--navy); font-weight: 600;">Blog</a></li>
+    <li><a href="index.html#testimonials">Reviews</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="tutors.html">Tutor Jobs</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta nav-cta-full">Book a Free Consultation</a>
+  <a href="index.html#contact" class="nav-cta nav-cta-short">Book Now</a>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <svg class="burger-icon-open" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+    <svg class="burger-icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+      <line x1="6" y1="18" x2="18" y2="6"></line>
+    </svg>
+  </button>
+</nav>
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+<aside class="mobile-menu" id="mobile-menu">
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Subjects</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#testimonials">Reviews</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="tutors.html">Tutor Jobs</a>
+  <a href="index.html#contact" class="cta">Book a Free Consultation</a>
+</aside>
+
+<!-- POST HEADER -->
+<header class="post-header">
+  <div class="post-header-inner">
+    <div class="breadcrumb"><a href="blog.html">Blog</a> &nbsp;›&nbsp; Medicine Admissions</div>
+    <span class="post-category-tag">Medicine Admissions</span>
+    <h1>Apply Strategically. The Most Important Part of Your Medicine Application.</h1>
+    <div class="post-byline">
+      <div class="post-author-avatar">E</div>
+      <div class="post-author-meta">
+        <strong>Elevate Tutor Team</strong>
+        <span>Written by a qualified doctor &nbsp;·&nbsp; 9 min read</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <p class="lead">Most people apply to medicine wanting to get in anywhere. Fair enough. We all end up doing the same degree.</p>
+
+  <p>But there's a step almost everyone skips, and it's the one that decides whether you get in at all.</p>
+
+  <p>It's not the UCAT. It's not your GCSEs. It's where you choose to apply.</p>
+
+  <p>I'll explain.</p>
+
+  <h2>The trap most applicants fall into</h2>
+
+  <p>You hit the UCAS choices page. You've got four medicine slots. You go on each university's website, find the entry requirements, see "AAA, A in Chemistry, 6 in English and Maths," and tick the box. You meet the requirements. So you apply.</p>
+
+  <p>This is fine until you realise that meeting the minimum entry requirements gets you nothing. Hundreds of other people meet them too. The actual question is what happens <em>after</em> the minimum is met. That's where most applications get filtered out. And that's the bit most people don't bother to research.</p>
+
+  <h2>What the universities don't put on the front page</h2>
+
+  <p>Every medical school has a published selection process. Sometimes it's on the entry requirements page. Sometimes it's buried two clicks deeper in a PDF. Sometimes you have to email admissions and ask. But it's there.</p>
+
+  <p>Take Sheffield as an example. The first page shows you AAA, with A in Chemistry. Standard. Nothing scary.</p>
+
+  <p>Dig a bit, and you find the actual three-stage process they use:</p>
+
+  <ol>
+    <li>Filter out anyone who doesn't meet the minimum academic and UCAT thresholds (1800/2700 for 2026 entry).</li>
+    <li>Of everyone left, rank them all by UCAT score.</li>
+    <li>Invite the top scorers to interview. Make offers based on interview performance.</li>
+  </ol>
+
+  <p>That's a completely different game. Once you've cleared their minimums, your A-Levels and your GCSEs stop mattering. Sheffield is essentially a UCAT-ranked university. If you've got AAA and a 1800 UCAT, you're not getting an interview. If you've got AAA and a 2200, you almost certainly are.</p>
+
+  <p>You can go further. Email Sheffield and ask what their UCAT cut-off has been for the last five years. Most universities will tell you. Look at the trend. If their cut-off has been hovering around the top 25th percentile, and you scored at the 40th, you can predict roughly that you won't be interviewed. So don't apply.</p>
+
+  <p>This isn't pessimism. It's strategy.</p>
+
+  <h2>Different schools, completely different games</h2>
+
+  <p>Here's the thing nobody quite explains. Medical schools don't all weight the same factors. They couldn't be more different from each other.</p>
+
+  <p>Some, like Sheffield and Bristol, rank almost entirely on UCAT.</p>
+
+  <p>Some, like Birmingham and Cardiff, weight GCSEs heavily.</p>
+
+  <p>Some, like UCL and Manchester, look at the whole application more holistically.</p>
+
+  <p>Some, like King's, blend UCAT and academics roughly evenly.</p>
+
+  <p>Some, like Oxford and Cambridge, lean hard on academic performance plus a separate interview process.</p>
+
+  <p>If you've got brilliant GCSEs and a mediocre UCAT, your application makes no sense at Sheffield. It makes a lot of sense at Birmingham.</p>
+
+  <p>If you've got patchy GCSEs but smashed the UCAT, the opposite is true.</p>
+
+  <p>Most applicants never check this. They apply to four medical schools and assume their good profile will travel. It often doesn't.</p>
+
+  <h2>A real example, with numbers</h2>
+
+  <p>I had two friends in sixth form. I'm going to keep it anonymous, but I promise this is real.</p>
+
+  <p>The first was an academic weapon. All 9s at GCSE. Predicted three A*s. UCAT score of 745 (on the old scoring system, comfortably above average). Looked, on paper, like an inevitable medical student.</p>
+
+  <p>He applied to Oxford, Nottingham, Imperial, and Brighton Sussex.</p>
+
+  <p>He got two interviews. Oxford and Nottingham. Rejected at the other two before shortlisting. He was unfortunate at Oxford. Nottingham didn't make him an offer either. Final score: zero offers from the application cycle.</p>
+
+  <p>His grades didn't fail him. His UCAT didn't fail him. His application strategy did. Oxford and Imperial both heavily weight academics, which suited him, but they're also among the most competitive medical schools in the country, where even strong applicants get filtered out for reasons that have little to do with merit. Brighton Sussex used a completely different selection method that didn't play to his strengths. He didn't research any of this.</p>
+
+  <p>The second friend was solid but not exceptional. One 9, a couple of 8s, the rest 5 to 7. UCAT of 690.</p>
+
+  <p>She applied to Southampton, Sheffield, Manchester, and Bristol.</p>
+
+  <p>Three interviews. Three offers.</p>
+
+  <p>Bristol that year had a sudden jump in their UCAT cut-off, which actually went against her. She was lucky elsewhere. The point is that her four choices were all schools where her UCAT score, combined with her profile, gave her a realistic shot. She'd researched it.</p>
+
+  <p>The academic weapon spent more time preparing for the UCAT than she did. He had stronger numbers across the board. He didn't get into medical school. She did.</p>
+
+  <h2>A couple of common myths worth dropping</h2>
+
+  <p><strong>"Apply to the most competitive schools because you can."</strong> No. Competitive doesn't mean better, and applying somewhere you're statistically unlikely to be interviewed is a wasted choice.</p>
+
+  <p><strong>"My personal statement will make up for a weaker UCAT."</strong> It won't. Almost no UK medical school scores personal statements anymore. Many don't even read them before interview.</p>
+
+  <p><strong>"It's a numbers game, just apply to four good ones."</strong> It's not a numbers game. It's a fit game. The right four for you depend entirely on your specific profile.</p>
+
+  <p><strong>"I'll figure it out when I get my UCAT score."</strong> You should be researching this <em>before</em> you sit the UCAT, so you understand what score you need to be competitive at the schools you actually want.</p>
+
+  <p class="pullquote">The students who get into medicine aren't always the strongest applicants. They're often the ones who apply most strategically.</p>
+
+  <p>Sometimes those are the same person. Often they're not.</p>
+
+  <p>If you do nothing else from this post: research where you apply.</p>
+
+  <div class="post-cta">
+    <h3>Need help working out where you should <em>actually</em> apply?</h3>
+    <p>This is exactly the kind of decision a single hour of guidance can completely change. Our tutors have been through the application process and can help you map your profile to the schools where you have a real shot. Worth a free conversation before you finalise your UCAS choices.</p>
+    <a href="index.html#contact">Book a Free Consultation</a>
+  </div>
+</article>
+
+<!-- RELATED POSTS -->
+<section class="related">
+  <span class="related-label">Continue Reading</span>
+  <h2>More on Medicine Admissions</h2>
+  <div class="related-grid">
+    <a href="post-ucat-guide.html" class="related-card">
+      <div class="related-image" style="background: linear-gradient(135deg, #5a2a3a 0%, #6e3548 100%);"><span class="related-image-icon">🩺</span></div>
+      <div class="related-content">
+        <span class="related-cat">Medicine Admissions</span>
+        <h3>500s to 700+ in the UCAT in Four Weeks</h3>
+        <p>A doctor's honest guide to UCAT prep. The strategy, pacing, and what actually works.</p>
+      </div>
+    </a>
+    <a href="post-revision-guide.html" class="related-card">
+      <div class="related-image" style="background: linear-gradient(135deg, #4a3c1a 0%, #635126 100%);"><span class="related-image-icon">📚</span></div>
+      <div class="related-content">
+        <span class="related-cat">Study Tips</span>
+        <h3>How to Actually Revise: Lessons From Medical School</h3>
+        <p>Active recall, spaced repetition, and why most revision techniques don't work.</p>
+      </div>
+    </a>
+    <a href="blog.html" class="related-card">
+      <div class="related-image" style="background: linear-gradient(135deg, #1a2540 0%, #243152 100%);"><span class="related-image-icon">📖</span></div>
+      <div class="related-content">
+        <span class="related-cat">All Posts</span>
+        <h3>See All Articles</h3>
+        <p>Browse our complete library of guides on Maths, Sciences, and Medicine admissions.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Elevate<span>.</span></div>
+      <p style="margin-top:.3rem;">Maths, Science &amp; Medicine admissions tutoring across the West Midlands &amp; online.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Subjects</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#testimonials">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="tutors.html">Tutor Jobs</a>
+    </div>
+    <p>© 2026 Elevate Tutor · Solihull, West Midlands</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    if (burger) burger.classList.remove('open');
+  }
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+    burger.classList.add('open');
+  }
+  if (burger) {
+    burger.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) closeMenu(); else openMenu();
+    });
+    mobileOverlay.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  }
+</script>
+
+</body>
+</html>
