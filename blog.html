@@ -33,8 +33,8 @@
   nav.scrolled { box-shadow: 0 2px 24px rgba(26,37,64,.08); }
   .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); text-decoration: none; }
   .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-size: .88rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; }
+  .nav-links a { font-size: .82rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
   .nav-links a:hover { color: var(--navy); }
   .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; white-space: nowrap; }
   .nav-cta:hover { background: var(--gold); }
@@ -68,7 +68,7 @@
   }
   .mobile-overlay.open { opacity: 1; visibility: visible; }
 
-  @media(max-width:780px){
+  @media(max-width:900px){
     nav { padding: .85rem 5vw; }
     .nav-links { display: none; }
     .nav-burger { display: inline-flex; }
@@ -124,7 +124,7 @@
 
   /* MAIN BLOG GRID */
   main { padding: 4rem 5vw 6rem; max-width: 1200px; margin: auto; }
-  @media(max-width:780px){ main { padding: 2.5rem 5vw 4rem; } }
+  @media(max-width:900px){ main { padding: 2.5rem 5vw 4rem; } }
 
   /* FEATURED POST */
   .featured-section { margin-bottom: 4rem; }
@@ -141,7 +141,7 @@
     color: inherit;
   }
   .featured-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,37,64,.1); }
-  @media(max-width:780px){ .featured-card { grid-template-columns: 1fr; } }
+  @media(max-width:900px){ .featured-card { grid-template-columns: 1fr; } }
   .featured-image {
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
     min-height: 320px;
@@ -158,7 +158,7 @@
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
   }
   .featured-content { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
-  @media(max-width:780px){ .featured-content { padding: 2rem 1.5rem; } }
+  @media(max-width:900px){ .featured-content { padding: 2rem 1.5rem; } }
   .post-category {
     display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .14em;
     text-transform: uppercase; color: var(--gold); margin-bottom: .8rem;

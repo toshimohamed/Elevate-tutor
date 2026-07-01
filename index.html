@@ -35,8 +35,8 @@
   nav.scrolled { box-shadow: 0 2px 24px rgba(26,37,64,.08); }
   .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); text-decoration: none; }
   .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a { font-size: .88rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; }
+  .nav-links a { font-size: .82rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
   .nav-links a:hover { color: var(--navy); }
   .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; white-space: nowrap; }
   .nav-cta:hover { background: var(--gold); }
@@ -71,7 +71,7 @@
   }
   .mobile-overlay.open { opacity: 1; visibility: visible; }
 
-  @media(max-width:780px){
+  @media(max-width:900px){
     nav { padding: .85rem 5vw; }
     .nav-links { display: none; }
     .nav-burger { display: inline-flex; }
@@ -220,6 +220,29 @@
   .svc-level { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
   .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; margin-bottom: .5rem; }
   .service-card p { font-size: .85rem; color: var(--slate); line-height: 1.65; }
+
+  /* WHY US */
+  #why { background: var(--navy); }
+  #why .section-label { color: var(--gold); }
+  #why .section-title { color: var(--white); }
+  #why .section-sub { color: rgba(248,245,240,.6); }
+  .why-grid { margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(248px,1fr)); gap: 1.3rem; }
+  .why-card { background: rgba(255,255,255,.04); border: 1.5px solid rgba(184,146,74,.22); border-radius: 10px; padding: 2rem 1.8rem; transition: transform .25s, border-color .25s; }
+  .why-card:hover { transform: translateY(-4px); border-color: rgba(184,146,74,.55); }
+  .why-icon { width: 46px; height: 46px; border-radius: 10px; background: rgba(184,146,74,.15); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.2rem; }
+  .why-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: var(--white); margin-bottom: .55rem; line-height: 1.2; }
+  .why-card p { font-size: .89rem; color: rgba(248,245,240,.68); line-height: 1.65; }
+
+  /* Flashcard feature banner */
+  .flashcard-banner { margin-top: 1.3rem; background: linear-gradient(135deg, rgba(184,146,74,.16), rgba(184,146,74,.04)); border: 1.5px solid rgba(184,146,74,.45); border-radius: 12px; padding: 2.6rem 2.4rem; display: grid; grid-template-columns: 1.55fr 1fr; gap: 2.5rem; align-items: center; }
+  @media(max-width:760px){ .flashcard-banner { grid-template-columns: 1fr; gap: 1.6rem; padding: 2rem 1.6rem; } }
+  .flashcard-banner-tag { font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); margin-bottom: .8rem; }
+  .flashcard-banner h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 700; color: var(--white); margin-bottom: .8rem; line-height: 1.18; }
+  .flashcard-banner p { font-size: .94rem; color: rgba(248,245,240,.78); line-height: 1.7; margin-bottom: 0; }
+  .flashcard-banner-right { display: flex; flex-direction: column; gap: .7rem; }
+  .flashcard-banner-btn { background: var(--gold); color: var(--navy); padding: .95rem 1.6rem; border-radius: 6px; font-weight: 600; font-size: .92rem; text-decoration: none; text-align: center; transition: background .2s; }
+  .flashcard-banner-btn:hover { background: var(--gold-l); }
+  .flashcard-banner-note { font-size: .8rem; color: rgba(248,245,240,.5); text-align: center; line-height: 1.5; }
 
   /* PRICING */
   #pricing { background: var(--navy); }
@@ -380,12 +403,12 @@
   <a href="#hero" class="nav-logo">Elevate<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#why">Why Us</a></li>
     <li><a href="#services">Subjects</a></li>
+    <li><a href="flashcards.html">Flashcards</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="tutors.html">Tutor Jobs</a></li>
   </ul>
   <a href="#contact" class="nav-cta nav-cta-full">Book a Free Consultation</a>
   <a href="#contact" class="nav-cta nav-cta-short">Book Now</a>
@@ -405,7 +428,9 @@
 <div class="mobile-overlay" id="mobile-overlay"></div>
 <aside class="mobile-menu" id="mobile-menu">
   <a href="#about">About</a>
+  <a href="#why">Why Us</a>
   <a href="#services">Subjects</a>
+  <a href="flashcards.html">Flashcards</a>
   <a href="#pricing">Pricing</a>
   <a href="blog.html">Blog</a>
   <a href="#testimonials">Reviews</a>
@@ -446,6 +471,10 @@
         <div class="hcard-result">
           <div class="result-icon">🩺</div>
           <div class="result-text"><strong>Medicine Admissions Experts</strong>UCAT, personal statements &amp; interview coaching</div>
+        </div>
+        <div class="hcard-result">
+          <div class="result-icon">🎴</div>
+          <div class="result-text"><strong>Free Anki Flashcard Library</strong>Exam-board-matched decks, free for every tutee</div>
         </div>
         <div class="hcard-result">
           <div class="result-icon">🏆</div>
@@ -533,6 +562,51 @@
   </div>
 </section>
 
+<!-- WHY US -->
+<section id="why">
+  <div class="inner">
+    <div class="reveal">
+      <div class="section-label">Why Elevate Tutor</div>
+      <h2 class="section-title">Not Your Average<br>Tutoring Agency.</h2>
+      <p class="section-sub">Most tutoring companies are middlemen. They match you with whoever is free and take a cut. We built something different.</p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <div class="why-icon">🩺</div>
+        <h3>Founded by an NHS Doctor</h3>
+        <p>Not a faceless agency. You work with someone who has actually sat the UCAT, written a successful personal statement, and been through medical school interviews. That experience shapes everything we do.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎴</div>
+        <h3>Our Own Flashcard Library</h3>
+        <p>We build active-recall flashcard decks for GCSE and A-Level science, matched to your exam board. No other tutoring company does this. Every student we tutor gets the full library free.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💬</div>
+        <h3>Honest Advice, Always</h3>
+        <p>We tell students the truth, even when it costs us a sale. If weekly tutoring isn't what you need, we'll say so. Read the blog and you'll see exactly what we mean.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✦</div>
+        <h3>New, Personal, Founder-Led</h3>
+        <p>We're a new business, and that's the point. No call centre. No rotating cast of strangers. Just direct, personal attention on every student, from the doctor who founded it.</p>
+      </div>
+    </div>
+
+    <div class="flashcard-banner reveal">
+      <div class="flashcard-banner-left">
+        <div class="flashcard-banner-tag">The Flashcard Library</div>
+        <h3>Free Anki flashcards for every student we tutor.</h3>
+        <p>We're building a full library of active-recall decks for GCSE and A-Level Biology, Chemistry, and Physics, matched to your exam board. Tutees get the whole library free. Anyone can try a topic from each subject at no cost, or buy a full subject to keep.</p>
+      </div>
+      <div class="flashcard-banner-right">
+        <a href="flashcards.html" class="flashcard-banner-btn">Explore the Flashcards</a>
+        <div class="flashcard-banner-note">One free topic per subject. No sign-up needed.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section id="services">
   <div class="inner">
@@ -546,7 +620,7 @@
         <div class="svc-icon">➕</div>
         <div class="svc-level">KS3 · GCSE · A-Level</div>
         <h3>Mathematics</h3>
-        <p>From algebra and trigonometry to calculus and statistics. We build genuine understanding, not just exam technique — the foundation for top grades.</p>
+        <p>From algebra and trigonometry to calculus and statistics. We build genuine understanding, not just exam technique. That is the foundation for top grades.</p>
       </div>
       <div class="service-card">
         <div class="svc-icon">🧬</div>
@@ -570,7 +644,7 @@
         <div class="svc-icon">🩺</div>
         <div class="svc-level">UCAS Applicants</div>
         <h3>UCAT Preparation</h3>
-        <p>Targeted preparation for every UCAT section — Verbal Reasoning, Decision Making, Quantitative Reasoning, and Situational Judgement.</p>
+        <p>Targeted preparation for every UCAT section. Verbal Reasoning, Decision Making, Quantitative Reasoning, and Situational Judgement.</p>
       </div>
       <div class="service-card">
         <div class="svc-icon">📝</div>
@@ -675,7 +749,7 @@
     <div class="reveal">
       <div class="section-label">What Families Say</div>
       <h2 class="section-title">Real Results, Real Feedback</h2>
-      <p class="section-sub">From KS3 support to A-Level success — hear from the students and parents we've worked with.</p>
+      <p class="section-sub">From KS3 support to A-Level success. Hear from the students and parents we've worked with.</p>
     </div>
     <div class="testi-grid reveal">
       <div class="testi-card">
@@ -690,7 +764,7 @@
       <div class="testi-card">
         <div class="testi-result">GCSE Chemistry: C → A</div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"I actually started to enjoy Chemistry after my first few sessions — which I never thought I'd say. My tutor explained things in a way that finally made sense to me. I went from dreading the exam to feeling genuinely prepared."</p>
+        <p class="testi-text">"I actually started to enjoy Chemistry after my first few sessions, which I never thought I'd say. My tutor explained things in a way that finally made sense to me. I went from dreading the exam to feeling genuinely prepared."</p>
         <div class="testi-author">
           <div class="testi-avatar">JT</div>
           <div><div class="testi-name">Jamie T.</div><div class="testi-role">Year 11 Student · Birmingham</div></div>
@@ -699,7 +773,7 @@
       <div class="testi-card">
         <div class="testi-result">Medical School Offer Secured</div>
         <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">"Elevate's UCAT and interview preparation was the difference-maker in my application. Having a tutor who'd actually been through medical school admissions themselves was invaluable — I went into my interviews genuinely prepared and came out with offers from three medical schools."</p>
+        <p class="testi-text">"Elevate's UCAT and interview preparation was the difference-maker in my application. Having a tutor who'd actually been through medical school admissions themselves was invaluable. I went into my interviews genuinely prepared and came out with offers from three medical schools."</p>
         <div class="testi-author">
           <div class="testi-avatar">DK</div>
           <div><div class="testi-name">David K.</div><div class="testi-role">Medical School Applicant · Solihull</div></div>
@@ -735,7 +809,7 @@
         </div>
         <div class="trust-box">
           <h4>Why families choose Elevate</h4>
-          <div class="trust-item">Free initial consultation — no obligation</div>
+          <div class="trust-item">Free initial consultation, no obligation</div>
           <div class="trust-item">No long-term contracts required</div>
           <div class="trust-item">Qualified, DBS-checked tutors</div>
           <div class="trust-item">Flexible online sessions to suit your schedule</div>
@@ -806,7 +880,9 @@
     </div>
     <div class="footer-links">
       <a href="#about">About</a>
+      <a href="#why">Why Us</a>
       <a href="#services">Subjects</a>
+      <a href="flashcards.html">Flashcards</a>
       <a href="#pricing">Pricing</a>
       <a href="blog.html">Blog</a>
       <a href="#testimonials">Reviews</a>
@@ -862,7 +938,7 @@
   }, { threshold: 0.08 });
   revealEls.forEach(r => obs.observe(r));
 
-  // Form submission via Formspree AJAX — stays on page, shows feedback
+  // Form submission via Formspree AJAX. Stays on page, shows feedback
   const form = document.getElementById('enquiry-form');
   const status = document.getElementById('form-status');
   if (form) {
@@ -886,7 +962,7 @@
 
         if (response.ok) {
           status.className = 'form-status success';
-          status.textContent = '✓ Thank you — your message has been received. We\'ll be in touch within one working day.';
+          status.textContent = '✓ Thank you. Your message has been received. We\'ll be in touch within one working day.';
           form.reset();
           btn.textContent = '✓ Sent';
           // Re-enable after 5 seconds in case user wants to send another
@@ -899,7 +975,7 @@
         }
       } catch (err) {
         status.className = 'form-status error';
-        status.innerHTML = 'Sorry — something went wrong. Please try again, or email us directly at <a href="mailto:elevatetutor1@gmail.com">elevatetutor1@gmail.com</a>.';
+        status.innerHTML = 'Sorry, something went wrong. Please try again, or email us directly at <a href="mailto:elevatetutor1@gmail.com">elevatetutor1@gmail.com</a>.';
         btn.disabled = false;
         btn.textContent = originalText;
       }
