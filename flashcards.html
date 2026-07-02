@@ -475,6 +475,14 @@
   .fc-cta p { font-size: 1rem; color: rgba(248,245,240,.7); line-height: 1.7; max-width: 540px; margin: 0 auto 1.8rem; font-weight: 300; }
   .nav-active { color: var(--navy) !important; font-weight: 600 !important; }
 
+
+  .notify-form { margin-top: .8rem; display: flex; flex-direction: column; gap: .5rem; }
+  .notify-form input[type="email"] { background: rgba(255,255,255,.07); border: 1.5px solid rgba(184,146,74,.35); border-radius: 6px; padding: .65rem .9rem; font-size: .84rem; color: var(--white); width: 100%; box-sizing: border-box; outline: none; transition: border-color .2s; font-family: inherit; }
+  .notify-form input[type="email"]::placeholder { color: rgba(248,245,240,.35); }
+  .notify-form input[type="email"]:focus { border-color: var(--gold); }
+  .notify-form button { background: transparent; border: 1.5px solid var(--gold); color: var(--gold); padding: .65rem 1rem; border-radius: 6px; font-size: .84rem; font-weight: 600; cursor: pointer; transition: background .2s, color .2s; font-family: inherit; }
+  .notify-form button:hover { background: var(--gold); color: var(--navy); }
+  .notify-form .notify-thanks { display: none; font-size: .84rem; color: var(--gold); padding: .5rem 0; }
 </style>
 </head>
 <body>
@@ -607,18 +615,19 @@
           <a class="deck-btn" href="https://payhip.com/b/F5HwK" target="_blank" rel="noopener">Buy Now</a>
           <a class="deck-btn" href="https://payhip.com/b/c09dv" target="_blank" rel="noopener" style="background:transparent;border:1.5px solid var(--gold);color:var(--gold);margin-top:.4rem;">Free Taster</a>
         </div>
-        <div class="deck-card">
+        <div class="deck-card" style="border-color:rgba(184,146,74,.6);">
           <div class="deck-level">GCSE</div>
           <h3>Chemistry</h3>
-          <p class="deck-meta">Coming soon &middot; AQA</p>
+          <p class="deck-meta" style="color:var(--gold);">Available now &middot; AQA</p>
           <ul class="deck-features">
             <li>Every topic covered</li>
             <li>Written for active recall</li>
             <li>Spaced repetition built in</li>
-            <li>One topic free to try</li>
+            <li>Required practicals included</li>
           </ul>
           <div class="deck-price"><span>£18</span><small>inc. VAT</small></div>
-          <a class="deck-btn" href="mailto:elevatetutor1@gmail.com?subject=GCSE%20Chemistry%20flashcards%20-%20early%20access">Register Interest</a>
+          <a class="deck-btn" href="https://payhip.com/b/qU7nW" target="_blank" rel="noopener">Buy Now</a>
+          <a class="deck-btn" href="https://payhip.com/b/6U8xj" target="_blank" rel="noopener" style="background:transparent;border:1.5px solid var(--gold);color:var(--gold);margin-top:.4rem;">Free Taster</a>
         </div>
         <div class="deck-card">
           <div class="deck-level">GCSE</div>
@@ -631,7 +640,13 @@
             <li>One topic free to try</li>
           </ul>
           <div class="deck-price"><span>£18</span><small>inc. VAT</small></div>
-          <a class="deck-btn" href="mailto:elevatetutor1@gmail.com?subject=GCSE%20Physics%20flashcards%20-%20early%20access">Register Interest</a>
+          <form class="notify-form" action="https://formspree.io/f/xjgjnnpv" method="POST">
+          <input type="hidden" name="subject" value="Notify me: GCSE Physics flashcards">
+          <input type="hidden" name="_gotcha" style="display:none">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <button type="submit">Notify me when ready</button>
+          <p class="notify-thanks">Done! We'll email you when it's ready.</p>
+        </form>
         </div>
       </div>
       <div class="deck-bundle"><strong>Save with the bundle.</strong> Get all three GCSE sciences together for <strong>£48</strong> instead of £54.</div>
@@ -654,8 +669,13 @@
             <li>One topic free to try</li>
           </ul>
           <div class="deck-price"><span>£24</span><small>inc. VAT</small></div>
-          <a class="deck-btn" href="mailto:elevatetutor1@gmail.com?subject=A-Level%20Biology%20flashcards%20-%20early%20access">Register Interest</a>
-          <a class="deck-btn" href="https://payhip.com/b/c09dv" target="_blank" rel="noopener" style="background:transparent;border:1.5px solid var(--gold);color:var(--gold);margin-top:.4rem;">Free Taster</a>
+          <form class="notify-form" action="https://formspree.io/f/xjgjnnpv" method="POST">
+          <input type="hidden" name="subject" value="Notify me: A-Level Biology flashcards">
+          <input type="hidden" name="_gotcha" style="display:none">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <button type="submit">Notify me when ready</button>
+          <p class="notify-thanks">Done! We'll email you when it's ready.</p>
+        </form>
         </div>
         <div class="deck-card">
           <div class="deck-level">A-Level</div>
@@ -668,7 +688,13 @@
             <li>One topic free to try</li>
           </ul>
           <div class="deck-price"><span>£24</span><small>inc. VAT</small></div>
-          <a class="deck-btn" href="mailto:elevatetutor1@gmail.com?subject=A-Level%20Chemistry%20flashcards%20-%20early%20access">Register Interest</a>
+          <form class="notify-form" action="https://formspree.io/f/xjgjnnpv" method="POST">
+          <input type="hidden" name="subject" value="Notify me: A-Level Chemistry flashcards">
+          <input type="hidden" name="_gotcha" style="display:none">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <button type="submit">Notify me when ready</button>
+          <p class="notify-thanks">Done! We'll email you when it's ready.</p>
+        </form>
         </div>
         <div class="deck-card">
           <div class="deck-level">A-Level</div>
@@ -681,7 +707,13 @@
             <li>One topic free to try</li>
           </ul>
           <div class="deck-price"><span>£24</span><small>inc. VAT</small></div>
-          <a class="deck-btn" href="mailto:elevatetutor1@gmail.com?subject=A-Level%20Physics%20flashcards%20-%20early%20access">Register Interest</a>
+          <form class="notify-form" action="https://formspree.io/f/xjgjnnpv" method="POST">
+          <input type="hidden" name="subject" value="Notify me: A-Level Physics flashcards">
+          <input type="hidden" name="_gotcha" style="display:none">
+          <input type="email" name="email" placeholder="Your email address" required>
+          <button type="submit">Notify me when ready</button>
+          <p class="notify-thanks">Done! We'll email you when it's ready.</p>
+        </form>
         </div>
       </div>
     </div>
@@ -817,6 +849,25 @@
       }
     });
   }
+</script>
+
+<script>
+document.querySelectorAll('.notify-form').forEach(function(form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(r) {
+      if (r.ok) {
+        form.style.display = 'none';
+        form.querySelector('.notify-thanks').style.display = 'block';
+      }
+    });
+  });
+});
 </script>
 </body>
 </html>
