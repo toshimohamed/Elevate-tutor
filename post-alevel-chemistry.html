@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="elevate-favicon.png">
+<link rel="apple-touch-icon" href="elevate-favicon.png">
+
+<title>How to Revise A-Level Chemistry | Elevate Tutor</title>
+<meta name="description" content="A-Level Chemistry is really three subjects in one: maths, facts, and understanding. A doctor's guide to revising each one properly, with the best free resources for each.">
+<meta property="og:title" content="How to Revise A-Level Chemistry">
+<meta property="og:description" content="Chemistry is maths, facts, and understanding combined. Here's how to revise each one properly, and the best resources for each.">
+<meta property="og:type" content="article">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1a2540;
+    --navy2:  #243152;
+    --gold:   #b8924a;
+    --gold-l: #e8d9c0;
+    --cream:  #f8f5f0;
+    --white:  #ffffff;
+    --slate:  #5a6478;
+    --border: rgba(26,37,64,.1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; }
+
+  /* NAV (matches site) */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5vw;
+    background: rgba(248,245,240,.92); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(26,37,64,.08); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); text-decoration: none; }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; }
+  .nav-links a { font-size: .82rem; font-weight: 500; color: var(--slate); text-decoration: none; letter-spacing: .02em; transition: color .2s; }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta { background: var(--navy); color: var(--cream); padding: .6rem 1.5rem; border-radius: 4px; font-size: .88rem; font-weight: 600; text-decoration: none; transition: background .2s; white-space: nowrap; }
+  .nav-cta:hover { background: var(--gold); }
+  .nav-cta-short { display: none; }
+  .nav-burger { display: none; background: none; border: none; cursor: pointer; padding: .4rem; margin-left: .5rem; position: relative; z-index: 101; }
+  .nav-burger svg { width: 24px; height: 24px; stroke: var(--navy); display: block; }
+  .nav-burger .burger-icon-close { display: none; }
+  .nav-burger.open .burger-icon-open { display: none; }
+  .nav-burger.open .burger-icon-close { display: block; }
+
+  .mobile-menu {
+    position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh;
+    background: var(--cream); box-shadow: -4px 0 24px rgba(26,37,64,.12);
+    padding: 5rem 2rem 2rem; z-index: 99;
+    transition: right .3s ease;
+    display: flex; flex-direction: column; gap: 1.4rem;
+  }
+  .mobile-menu.open { right: 0; }
+  .mobile-menu a {
+    font-size: 1rem; font-weight: 500; color: var(--navy); text-decoration: none;
+    padding: .5rem 0; border-bottom: 1px solid var(--border);
+  }
+  .mobile-menu a.cta {
+    background: var(--navy); color: var(--cream); border: none;
+    padding: .9rem 1rem; border-radius: 4px; text-align: center;
+    font-weight: 600; margin-top: 1rem;
+  }
+  .mobile-overlay {
+    position: fixed; inset: 0; background: rgba(26,37,64,.4);
+    opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; z-index: 98;
+  }
+  .mobile-overlay.open { opacity: 1; visibility: visible; }
+
+  @media(max-width:900px){
+    nav { padding: .85rem 5vw; }
+    .nav-links { display: none; }
+    .nav-burger { display: inline-flex; }
+    .nav-cta-full { display: none; }
+    .nav-cta-short { display: inline-block; padding: .55rem 1.1rem; font-size: .85rem; }
+  }
+  @media(max-width:380px){
+    .nav-cta-short { display: none; }
+    .nav-logo { font-size: 1.4rem; }
+  }
+
+  /* POST HEADER */
+  .post-header {
+    padding: 8rem 5vw 4rem;
+    background: var(--navy);
+    color: var(--cream);
+    position: relative; overflow: hidden;
+  }
+  .post-header::before {
+    content: ''; position: absolute; top: -120px; right: -120px;
+    width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,146,74,0.18), transparent 70%);
+  }
+  .post-header-inner { max-width: 760px; margin: auto; position: relative; z-index: 2; }
+  .breadcrumb { font-size: .82rem; color: rgba(248,245,240,.65); margin-bottom: 1.5rem; }
+  .breadcrumb a { color: var(--gold-l); text-decoration: none; transition: color .2s; }
+  .breadcrumb a:hover { color: var(--gold); }
+  .post-category-tag {
+    display: inline-block; padding: .35rem 1rem;
+    border: 1px solid rgba(232,217,192,.4); border-radius: 100px;
+    font-size: .76rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold-l); margin-bottom: 1.5rem;
+  }
+  .post-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700; line-height: 1.08;
+    margin-bottom: 1.5rem;
+  }
+  .post-byline {
+    display: flex; align-items: center; gap: 1rem;
+    padding-top: 1.5rem; border-top: 1px solid rgba(248,245,240,.15);
+  }
+  .post-author-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .post-author-meta { font-size: .9rem; color: rgba(248,245,240,.85); }
+  .post-author-meta strong { color: var(--cream); display: block; font-weight: 600; }
+  .post-author-meta span { font-size: .82rem; }
+
+  /* ARTICLE BODY */
+  article {
+    max-width: 720px; margin: 0 auto; padding: 4rem 5vw;
+    background: var(--cream);
+  }
+  @media(max-width:900px){ article { padding: 2.5rem 5vw; } }
+  article p, article ul, article ol {
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: var(--navy);
+    margin-bottom: 1.4rem;
+    font-weight: 400;
+  }
+  article p strong { font-weight: 600; }
+  article h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 700; line-height: 1.2;
+    margin-top: 3rem; margin-bottom: 1.3rem;
+    color: var(--navy);
+  }
+  article h2:first-of-type { margin-top: 0; }
+  article ul, article ol { padding-left: 1.4rem; }
+  article ul li, article ol li {
+    margin-bottom: .7rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  article ul li::marker { color: var(--gold); }
+  article ol li::marker { color: var(--gold); font-weight: 600; }
+  article .lead {
+    font-size: 1.18rem; line-height: 1.65;
+    color: var(--slate);
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  article em { font-style: italic; }
+  article .pullquote {
+    border-left: 3px solid var(--gold);
+    padding: .3rem 0 .3rem 1.4rem;
+    margin: 2rem 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  article .aside {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem 1.6rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+  }
+  article .aside p { font-size: .98rem; margin-bottom: 0; color: var(--slate); }
+  article .aside p strong { color: var(--navy); }
+
+  /* Week schedule */
+  .schedule { margin: 2rem 0; }
+  .week-block {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 1.5rem 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .week-block h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: .8rem;
+  }
+  .week-block h4 span {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 600;
+  }
+  .week-block p {
+    font-size: .98rem;
+    line-height: 1.65;
+    color: var(--slate);
+    margin-bottom: .6rem;
+  }
+  .week-block p:last-child { margin-bottom: 0; }
+  .week-block ul {
+    margin: .5rem 0 0 0;
+    padding-left: 1.3rem;
+  }
+  .week-block ul li {
+    font-size: .94rem;
+    line-height: 1.6;
+    margin-bottom: .35rem;
+    color: var(--slate);
+  }
+  .week-block ul li::marker { color: var(--gold); }
+
+  /* CTA BLOCK INSIDE POST */
+  .post-cta {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 3rem 2rem;
+    margin: 4rem auto 0;
+    max-width: 720px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .post-cta h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 700;
+    margin-bottom: .8rem;
+  }
+  .post-cta h3 em { color: var(--gold); font-style: italic; }
+  .post-cta p {
+    color: rgba(248,245,240,.85);
+    line-height: 1.65; margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+  .post-cta a {
+    display: inline-block; background: var(--gold); color: var(--navy);
+    padding: .85rem 1.8rem; border-radius: 4px; font-weight: 600;
+    text-decoration: none; transition: transform .2s, background .2s;
+  }
+  .post-cta a:hover { background: var(--gold-l); transform: translateY(-2px); }
+
+  /* RELATED POSTS */
+  .related {
+    max-width: 1200px; margin: 5rem auto 0;
+    padding: 0 5vw 6rem;
+  }
+  .related-label {
+    font-size: .74rem; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold);
+    text-align: center; display: block; margin-bottom: .8rem;
+  }
+  .related h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 700;
+    text-align: center; margin-bottom: 2.5rem;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .related-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+  }
+  .related-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(26,37,64,.1); }
+  .related-image {
+    height: 140px;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #5a2a3a 0%, #6e3548 100%);
+  }
+  .related-image-icon { font-size: 2.6rem; }
+  .related-content { padding: 1.4rem 1.4rem 1.6rem; flex: 1; display: flex; flex-direction: column; }
+  .related-cat {
+    font-size: .7rem; font-weight: 600; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: .5rem;
+  }
+  .related-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 700;
+    line-height: 1.25; margin-bottom: .5rem;
+  }
+  .related-content p {
+    font-size: .9rem; color: var(--slate);
+    line-height: 1.55;
+  }
+
+  /* FOOTER */
+  footer { background: #111827; color: rgba(248,245,240,.45); padding: 2.5rem 5vw; }
+  .footer-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); }
+  .footer-logo span { color: var(--gold); }
+  footer p { font-size: .8rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { color: rgba(248,245,240,.4); font-size: .8rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Elevate<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Subjects</a></li>
+    <li><a href="flashcards.html">Flashcards</a></li>
+    <li><a href="about.html">Who Am I</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="blog.html" style="color: var(--navy); font-weight: 600;">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta nav-cta-full">Book a Free Consultation</a>
+  <a href="index.html#contact" class="nav-cta nav-cta-short">Book Now</a>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <svg class="burger-icon-open" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+    <svg class="burger-icon-close" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+      <line x1="6" y1="18" x2="18" y2="6"></line>
+    </svg>
+  </button>
+</nav>
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+<aside class="mobile-menu" id="mobile-menu">
+  <a href="index.html#about">About</a>
+  <a href="index.html#services">Subjects</a>
+  <a href="flashcards.html">Flashcards</a>
+  <a href="about.html">Who Am I</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="blog.html">Blog</a>
+  <a href="index.html#testimonials">Reviews</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="tutors.html">Tutor Jobs</a>
+  <a href="index.html#contact" class="cta">Book a Free Consultation</a>
+</aside>
+
+<!-- POST HEADER -->
+<header class="post-header">
+  <div class="post-header-inner">
+    <div class="breadcrumb"><a href="blog.html">Blog</a> &nbsp;›&nbsp; Study Tips</div>
+    <span class="post-category-tag">Study Tips</span>
+    <h1>How to Revise A-Level Chemistry</h1>
+    <div class="post-byline">
+      <div class="post-author-avatar">E</div>
+      <div class="post-author-meta">
+        <strong>Elevate Tutor Team</strong>
+        <span>Written by a qualified doctor &nbsp;·&nbsp; 7 min read</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<article>
+  <p class="lead">A-Level Chemistry trips people up in a way that's different from most other subjects, and I think it's because students treat it as one thing when it's actually three.</p>
+
+  <p>Chemistry is really a combination of maths, facts, and understanding. Every student is strong in some of these and weak in others. Some people can recall facts effortlessly but freeze the moment a calculation appears. Others can do the maths in their sleep but can't explain why a reaction happens the way it does. The truth is you need all three to do well, and each one needs a different approach to revision. Treating them the same way is where a lot of students go wrong.</p>
+
+  <p>Here's how I'd break down revision for each.</p>
+
+  <h2>Maths</h2>
+
+  <p>This is the simplest of the three, because it comes down to one thing: practice.</p>
+
+  <p>There's no trick to acid-base calculations or amount of substance questions. You just need to see enough of them that the method becomes automatic. The more questions you do, the better you get. It really is that straightforward.</p>
+
+  <p><strong>Chemsheets</strong> is the best resource I know of for this. It covers every question type you'll come across, and it's particularly strong for the maths-heavy topics like acids and bases and moles calculations. Work through those systematically.</p>
+
+  <p>Once you've built the method up, move on to <strong>PMT (Physics and Maths Tutor)</strong>, which has past paper questions organised by topic. This is where you start applying the maths in the format you'll actually see in the real exam. Both resources matter here. Chemsheets builds the skill, PMT tests it under exam conditions.</p>
+
+  <h2>Understanding</h2>
+
+  <p>This is the hardest part, by a fair distance, and it's the one that took me the most work when I was doing my A-Levels.</p>
+
+  <p>Some topics have an easy factual layer but a much harder conceptual one underneath. NMR is a good example. The facts around it are recallable easily enough, but actually understanding what's going on, why the peaks appear where they do, why splitting patterns look the way they do, takes real thought.</p>
+
+  <p>When I was at school, this was the hard part to solve, not because the concepts were unteachable, but because good explanations were hard to access. I'd be stuck on something and have to wait until my teacher had a free moment, or until my next tutoring session, before I could actually get it explained properly.</p>
+
+  <p>That's changed a lot. There are more options now than there used to be:</p>
+
+  <p><strong>YouTube</strong> has a huge number of chemistry explainers, and a good video can save you hours of confusion.</p>
+
+  <p><strong>Tutoring</strong> gives you a person who can adapt the explanation to how you think, in real time.</p>
+
+  <p><strong>Teachers at school</strong> are still one of the best resources going, if you can get time with them.</p>
+
+  <p><strong>AI</strong> is the newer option, and one worth using properly. You can ask it any misconception you have and get an explanation back as if you were speaking to a person, at any hour, as many times as you need.</p>
+
+  <p>One thing to flag with AI though: it can sound completely confident while being wrong. Treat what it tells you with a healthy amount of scepticism, especially for anything you can't cross-check against your spec or a textbook. Use it to unblock yourself and build understanding, but don't take it as gospel.</p>
+
+  <p>Whichever route you use, the same rule applies as with maths. Watching a video or getting a good explanation is only the first step. Close it, then try to explain the concept back to yourself without any help. That's the point where understanding actually sticks.</p>
+
+  <h2>Facts</h2>
+
+  <p>There's no shortage of resources for the factual content in Chemistry. Save My Exams, your textbook, your class notes, all of these will cover the spec content well enough.</p>
+
+  <p>My main piece of advice here is to pick one comprehensive resource and stick with it. Don't try to compile facts from five different sources. Anything extra you're missing will surface naturally once you start doing exam questions and notice the gaps.</p>
+
+  <p>The one I recommend without hesitation is <strong>Chemrevise.org</strong>. It's the most comprehensive and easily accessible set of notes I've come across for A-Level Chemistry, and it's free.</p>
+
+  <p>The bit that matters most here isn't which resource you use though. It's how you retain what's in it. Reading notes once and moving on won't get facts into long-term memory, no matter how good the notes are. You need active recall on a spaced schedule, the same principle that applies to any subject with a large volume of content to remember.</p>
+
+  <p>This is exactly why I'm currently building a flashcard set for AQA A-Level Chemistry. It covers the full spec content and uses spaced repetition, so it tells you exactly when a fact needs reviewing before you forget it, rather than leaving you to guess.</p>
+
+  <h2>Putting it together</h2>
+
+  <p>Maths, facts, and understanding all need to be revised, but not all in the same way. Drill maths through repetition. Chase understanding through explanation, whether that's a video, a tutor, a teacher, or AI, followed by testing yourself without help. Learn facts from one solid source and retain them through active recall and spacing rather than rereading.</p>
+
+  <p>Most students who struggle with A-Level Chemistry aren't lacking ability. They're usually applying the wrong method to the wrong part of the subject, most often rereading notes when they should be testing themselves, or skipping past a concept they don't understand because the facts around it feel manageable. Separate the three out, and revise each one properly, and the subject becomes a lot more manageable.</p>
+
+  <p class="pullquote">Chemistry isn't one subject. It's three, and each one needs its own approach.</p>
+
+  <div class="post-cta">
+    <h3>Want help putting this into <em>practice?</em></h3>
+    <p>Knowing what to revise is one thing. Having someone explain the parts that don't click, and staying accountable across a demanding A-Level timetable, is another. Our tutors work with A-Level Chemistry students on exactly this.</p>
+    <a href="index.html#contact">Book a Free Consultation</a>
+  </div>
+</article>
+
+<!-- RELATED POSTS -->
+<section class="related">
+  <span class="related-label">Continue Reading</span>
+  <h2>More on Studying &amp; Revision</h2>
+  <div class="related-grid">
+    <a href="post-revision-guide.html" class="related-card">
+      <div class="related-image" style="background: linear-gradient(135deg, #4a3c1a 0%, #635126 100%);"><span class="related-image-icon">🧠</span></div>
+      <div class="related-content">
+        <span class="related-cat">Study Tips</span>
+        <h3>How to Actually Revise</h3>
+        <p>What five years of medical school taught me about active recall and spaced repetition.</p>
+      </div>
+    </a>
+    <a href="post-ucat-guide.html" class="related-card">
+      <div class="related-image" style="background: linear-gradient(135deg, #5a2a3a 0%, #6e3548 100%);"><span class="related-image-icon">🩺</span></div>
+      <div class="related-content">
+        <span class="related-cat">Medicine Admissions</span>
+        <h3>500s to 700+ in the UCAT in Four Weeks</h3>
+        <p>A doctor's honest guide to UCAT prep, the strategy, pacing, and what actually works.</p>
+      </div>
+    </a>
+    <a href="blog.html" class="related-card">
+      <div class="related-image" style="background: linear-gradient(135deg, #1a2540 0%, #243152 100%);"><span class="related-image-icon">📚</span></div>
+      <div class="related-content">
+        <span class="related-cat">All Posts</span>
+        <h3>See All Articles</h3>
+        <p>Browse our complete library of guides on Maths, Sciences, and Medicine admissions.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Elevate<span>.</span></div>
+      <p style="margin-top:.3rem;">Maths, Science &amp; Medicine admissions tutoring across the West Midlands &amp; online.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Subjects</a>
+      <a href="flashcards.html">Flashcards</a>
+      <a href="about.html">Who Am I</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#testimonials">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="tutors.html">Tutor Jobs</a>
+    </div>
+    <p>© 2026 Elevate Tutor · All rights reserved · Solihull, West Midlands</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    if (burger) burger.classList.remove('open');
+  }
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    mobileOverlay.classList.add('open');
+    burger.classList.add('open');
+  }
+  if (burger) {
+    burger.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('open')) closeMenu(); else openMenu();
+    });
+    mobileOverlay.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  }
+</script>
+
+</body>
+</html>
